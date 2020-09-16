@@ -1,0 +1,26 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    color: #1a1a2e;
+}
+
+.bg-pattern {
+    background-image: url(./pattern.svg);
+    background-color: #ececec;
+    background-position: center;
+    background-repeat: repeat;
+}
+
+.container {
+    width: 80%;
+    padding: 2% 0;
+    margin: 0 auto;
+}
+
+.intro {
+    font-size: 10vh;
+}
+
+.secondary-color {
+    color: #e94560;
+}
