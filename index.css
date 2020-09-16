@@ -1,7 +1,26 @@
+/* 
+    color panel
+
+    darkest to lightest
+    
+    -- Shades of Blue
+    1. #1b1b2f -- primary text
+    2. #162447 -- (no use till now)
+    3. #1a6685 -- links
+
+    -- Pink Shade
+    4. #e43f5a -- highlight text
+
+    -- Gray Shade
+    5. #ececec
+
+*/
+
 * {
     margin: 0px;
     padding: 0px;
-    color: #1a1a2e;
+    color: #1b1b2f;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .bg-pattern {
@@ -13,14 +32,39 @@
 
 .container {
     width: 80%;
-    padding: 2% 0;
+    padding: 4rem 0;
     margin: 0 auto;
 }
 
-.intro {
-    font-size: 10vh;
+p {
+    font-weight: 600;
+    font-size: 1.3rem;
 }
 
-.secondary-color {
-    color: #e94560;
+.highlight {
+    font-size: 3rem;
+    font-weight: 900;
+}
+
+.spacing {
+    padding: 1rem 0;
+}
+
+.sec-color {
+    color: #e43f5a;
+}
+
+.link {
+    color: #00a0c4;
+}
+
+.text-justify {
+    text-align: justify;
+}
+
+hr {
+    margin: 3em 0;
+    background-color: teal;
+    border: none;
+    height: 0.2rem;
 }
