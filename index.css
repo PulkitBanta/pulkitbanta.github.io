@@ -9,7 +9,7 @@
     3. #1a6685 -- links
 
     -- Pink Shade
-    4. #e43f5a -- highlight text
+    4. #e43f5a -- heading text
 
     -- Gray Shade
     5. #ececec
@@ -19,7 +19,7 @@
 * {
     margin: 0px;
     padding: 0px;
-    color: #1b1b2f;
+    color: #353541;
     font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -32,22 +32,34 @@
 
 .container {
     width: 80%;
-    padding: 4rem 0;
     margin: 0 auto;
+    padding: 4rem 0;
 }
 
 p {
     font-weight: 600;
-    font-size: 1.3rem;
+    font-size: 1.4rem;
 }
 
-.highlight {
+.heading {
     font-size: 3rem;
     font-weight: 900;
 }
 
+.sub-heading {
+    font-size: 2rem;
+    font-weight: 900;
+    padding-left: 1%;
+    border-left: 5px solid #e43f5a;
+}
+
+.sub-text {
+    margin-left: 2%;
+}
+
 .spacing {
     padding: 1rem 0;
+    max-width: 70%;
 }
 
 .sec-color {
@@ -58,13 +70,87 @@ p {
     color: #00a0c4;
 }
 
-.text-justify {
-    text-align: justify;
-}
-
 hr {
     margin: 3em 0;
     background-color: teal;
     border: none;
     height: 0.2rem;
+}
+
+.cards-holder {
+    margin-top: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card {
+    margin: 0.5em;
+    padding: 2rem;
+    flex: 1 1 18%;
+    border-radius: 4px;
+    border: 2px solid #e43f5a;
+}
+
+.card-title {
+    font-size: larger;
+    text-align: center;
+    padding: 0 0 0.5rem 0;
+    border-bottom: 2px solid teal;
+}
+
+.card-body {
+    margin: 1rem 0;
+}
+
+/* small screen sizes upto 400px*/
+/* screen sizes upto 900px */
+@media screen and (max-width: 992px) {
+
+    .heading {
+        font-size: 2.5rem;
+    }
+
+    .sub-heading {
+        font-size: 1.5rem;
+        font-weight: 700;
+        padding-left: 2%;
+    }
+
+    .spacing {
+        max-width: 70%;
+    }
+
+    p {
+        font-size: 1.125rem;
+    }
+
+    .card {
+        flex: 0 1 auto;
+    }
+}
+
+@media screen and (max-width: 400px) {
+
+    .heading {
+        font-size: 1.875rem;
+    }
+
+    .sub-heading {
+        font-weight: 700;
+        font-size: 1.5rem;
+        padding-left: 2%;
+    }
+
+    p {
+        font-size: 1rem;
+    }
+
+    .spacing {
+        max-width: none;
+    }
+
+    .card {
+        flex: 0 1 auto;
+    }
 }
