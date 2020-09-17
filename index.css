@@ -16,6 +16,7 @@
 
 */
 
+/* root element CSS */
 * {
     margin: 0px;
     padding: 0px;
@@ -36,6 +37,7 @@
     padding: 4rem 0;
 }
 
+/* font css */
 p {
     font-weight: 600;
     font-size: 1.4rem;
@@ -77,6 +79,7 @@ hr {
     height: 0.2rem;
 }
 
+/* cards css */
 .cards-holder {
     margin-top: 2rem;
     display: flex;
@@ -101,6 +104,52 @@ hr {
 
 .card-body {
     margin: 1rem 0;
+}
+
+/* button css */
+.button-holder {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 1%;
+}
+
+.button-holder a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.button {
+    flex: 0 1 5%;
+    padding: 1rem 1rem;
+    margin: 0.5rem;
+    text-align: center;
+    border-radius: 8px;
+}
+
+.linkedin {
+    background-color: #0e76a8;
+}
+
+.linkedin:hover {
+    background-color: rgba(14, 119, 168, 0.8);
+}
+
+.github {
+    background-color: #333;
+}
+
+.twitter {
+    background-color: #1da1f2;
+}
+
+.mail {
+    background-color: #B23121;
+}
+
+/* other css */
+.shadow {
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
 }
 
 /* small screen sizes upto 400px*/
