@@ -89,10 +89,14 @@ a.link {
     justify-content: center;
 }
 
+.cards-holder a {
+    text-decoration: none;
+}
+
 .card {
+    flex: 0 1 25%;
     margin: 0.5em;
     padding: 2rem 2rem 0 2rem;
-    flex: 0 1 25%;
     border-radius: 4px;
     border: 2px solid #e43f5a;
     transition: all 0.3s ease-in-out;
