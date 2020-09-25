@@ -137,6 +137,11 @@ a.link {
 }
 
 /* cards css */
+
+.card-section {
+    margin: 2% auto;
+}
+
 .cards-holder {
     margin-top: 2rem;
     display: flex;
@@ -257,6 +262,14 @@ a.link {
     .card {
         flex: 0 1 auto;
     }
+
+    .py-1rem {
+        max-width: 80%;
+    }
+
+    .extra-padding {
+        padding: 2% 0;
+    }
 }
 
 @media screen and (max-width: 400px) {
@@ -284,5 +297,13 @@ a.link {
 
     .border-bottom-blue {
         border: none;
+    }
+
+    .py-1rem {
+        max-width: 90%;
+    }
+    
+    .extra-padding {
+        padding: 10% 0;
     }
 }
