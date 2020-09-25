@@ -43,7 +43,6 @@
 
 .container {
     width: 80%;
-    padding: 1% 0;
     margin: 0 auto;
 }
 
@@ -106,22 +105,16 @@ hr {
     color: #162447;
 }
 
-.bottom-border-blue {
-    border-bottom: 3px solid #00a0c4;
-}
-
 .border-bottom-pink {
     border-bottom: 5px solid var(--sec-color);
 }
 
 .min-h-80 {
     min-height: 80vh;
-    margin: 5% 0;
 }
 
 .min-h-60 {
     min-height: 60vh;
-    margin: 5% 0;
 }
 
 .h-v-center {
@@ -179,6 +172,7 @@ a.link {
 .card-body {
     margin: 1rem 0;
     text-align: center;
+    color: #2c4b68;
 }
 
 /* button css */
@@ -242,10 +236,6 @@ a.link {
         padding-left: 2%;
     }
 
-    .spacing {
-        max-width: 70%;
-    }
-
     p {
         font-size: 1.125rem;
     }
@@ -269,10 +259,6 @@ a.link {
 
     p {
         font-size: 1rem;
-    }
-
-    .spacing {
-        max-width: none;
     }
 
     .card {
