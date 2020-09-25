@@ -19,14 +19,13 @@
 /* root element CSS */
 * {
     /* css colors */
-    --text-color: #f1e6cf;
-    --link: #00a0c4;
+    --link: #dbbd81;
+    --light-blue: #00a0c4;
     --sec-color: #e43f5a;
     /* --rgb-bg: 236, 236, 236; or #ececec */
     --rgb-bg: 219, 189, 127; /* or #dbbd81 */
     --btn-color: white;
-    --title: #162447;
-    --section-border: teal;
+    --title: #17264d;
     --rgb-black: 0, 0, 0;
     --white: white;
 
@@ -105,6 +104,10 @@ hr {
     color: #162447;
 }
 
+.border-bottom-blue {
+    border-bottom: 5px solid var(--light-blue);
+}
+
 .border-bottom-pink {
     border-bottom: 5px solid var(--sec-color);
 }
@@ -123,9 +126,8 @@ hr {
 }
 
 .bg-section {
-    color: var(--white) !important;
     background-color: #2c4b68;
-    color: var(--text-color);
+    color: white;
 }
 
 /* links css */
@@ -166,7 +168,7 @@ a.link {
     color: var(--title);
     text-align: center;
     padding: 0 0 0.5rem 0;
-    border-bottom: 2px solid var(--link);
+    border-bottom: 2px solid var(--light-blue);
 }
 
 .card-body {
@@ -175,7 +177,12 @@ a.link {
     color: #2c4b68;
 }
 
-/* button css */
+/* contact section */
+
+.contact {
+    color: var(--title);
+}
+
 .button-holder {
     display: flex;
     flex-wrap: wrap;
@@ -233,11 +240,18 @@ a.link {
     .sub-heading {
         font-size: 1.5rem;
         font-weight: 700;
-        padding-left: 2%;
+    }
+
+    .min-h-60{
+        padding: 5% 0;
+    }
+
+    .min-h-80{
+        padding: 10% 0;
     }
 
     p {
-        font-size: 1.125rem;
+        font-size: 1.5rem;
     }
 
     .card {
@@ -254,14 +268,21 @@ a.link {
     .sub-heading {
         font-weight: 700;
         font-size: 1.5rem;
-        padding-left: 2%;
     }
 
     p {
-        font-size: 1rem;
+        font-size: 1.125rem;
     }
 
     .card {
         flex: 0 1 auto;
+    }
+
+    .min-h-60, .min-h-80 {
+        padding: 5% 0;
+    }
+
+    .border-bottom-blue {
+        border: none;
     }
 }
