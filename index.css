@@ -52,7 +52,7 @@ p {
 }
 
 .heading {
-    font-size: 4rem;
+    font-size: 3rem;
     font-weight: 900;
 }
 
@@ -104,12 +104,8 @@ hr {
     color: #162447;
 }
 
-.border-bottom-blue {
-    border-bottom: 5px solid var(--light-blue);
-}
-
-.border-bottom-pink {
-    border-bottom: 5px solid var(--sec-color);
+.pink {
+    color: #ff5f7a;
 }
 
 .min-h-80 {
