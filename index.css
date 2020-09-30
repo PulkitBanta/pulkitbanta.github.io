@@ -230,6 +230,10 @@ a.link {
     box-shadow: 2px 2px 5px rgba(var(--rgb-black), 0.5);
 }
 
+svg {
+    max-width: 30%;
+}
+
 /* small screen sizes upto 400px*/
 /* screen sizes upto 900px */
 @media screen and (max-width: 992px) {
@@ -266,6 +270,10 @@ a.link {
     .extra-padding {
         padding: 2% 0;
     }
+
+    svg {
+        max-width: 60%;
+    }
 }
 
 @media screen and (max-width: 400px) {
@@ -301,5 +309,9 @@ a.link {
     
     .extra-padding {
         padding: 10% 0;
+    }
+
+    svg {
+        max-width: 80%;
     }
 }
