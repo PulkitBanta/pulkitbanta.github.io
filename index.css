@@ -31,7 +31,7 @@
 
     margin: 0px;
     padding: 0px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: monsterrat;
 }
 
 .bg-pattern {
@@ -111,6 +111,10 @@ hr {
 
 .min-h-80 {
     min-height: 80vh;
+}
+
+.min-h-100 {
+    min-height: 100vh;
 }
 
 .min-h-60 {
@@ -228,7 +232,11 @@ a.link {
 
 /* other css */
 .shadow {
-    box-shadow: 2px 2px 5px rgba(var(--rgb-black), 0.5);
+    box-shadow: 0 0 10px rgba(var(--rgb-black), 0.5);
+}
+
+.shadow:hover {
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
 }
 
 svg {
