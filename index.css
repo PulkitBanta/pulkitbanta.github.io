@@ -165,7 +165,7 @@ a.link {
 
 .card:hover {
     filter: invert(1);
-    transform: scale(1.05);
+    transform: scale(1.075);
     background-color: rgba(255, 255, 255, 0.7);
 }
 
@@ -211,7 +211,7 @@ a.link {
 }
 
 .button:hover {
-    transform: scale(1.125);
+    transform: scale(1.125) !important;
 }
 
 .linkedin {
@@ -233,10 +233,6 @@ a.link {
 /* other css */
 .shadow {
     box-shadow: 0 0 10px rgba(var(--rgb-black), 0.5);
-}
-
-.shadow:hover {
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
 }
 
 svg {
