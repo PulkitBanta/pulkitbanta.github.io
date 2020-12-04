@@ -4,11 +4,40 @@
 * {
     margin: 0px;
     padding: 0px;
+    box-sizing: border-box;
     font-family: "Montserrat", sans-serif;
     font-weight: 500;
     scroll-behavior: smooth;
 }
 /* root styling ends */
+
+/* layout styling */
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+svg {
+    max-width: 30%;
+}
+
+.min-h-60 {
+    min-height: 60vh;
+}
+
+.min-h-80 {
+    min-height: 80vh;
+}
+
+.min-h-100 {
+    min-height: 100vh;
+}
+
+.h-v-center {
+    display: grid;
+    place-items: center;
+}
+/* layout styling ends */
 
 /* Navbar styling */
 header {
@@ -21,8 +50,8 @@ header {
 
 header .logo {
     margin-right: auto;
-    max-width: 4%;
-    max-height: 4%;
+    width: 5%;
+    height: 5%;
     padding: 0.5rem;
 }
 
@@ -30,20 +59,17 @@ header .logo {
     list-style: none;
 }
 
-.nav-links li {
-    padding: 5px 15px;
+.nav-links a {
+    padding: 1em;
     display: inline-block;
     transition: all 0.3s ease;
-}
-
-.nav-links li a {
     color: white;
     text-decoration: none;
 }
 
-.nav-links li:hover {
+.nav-links a:hover {
     cursor: pointer;
-    color: #e6f4f1;
+    color: #a4ddd1;
     transform: scale(1.1);
 }
 /* navbar styling ends */
@@ -119,41 +145,18 @@ hr {
 
 /* cards styling */
 .about-card {
+    font-weight: 500;
     padding: 3rem;
-    max-width: 60%;
+    width: 50%;
     text-align: center;
     border-radius: 8px;
     box-shadow: 0 0px 15px rgba(0, 0, 0, 0.2);
 }
+
+.about-card div p {
+    font-weight: 500;
+}
 /* cards styling ends */
-
-/* layout styling */
-.container {
-    width: 80%;
-    margin: 0 auto;
-}
-
-svg {
-    max-width: 30%;
-}
-
-.min-h-60 {
-    min-height: 60vh;
-}
-
-.min-h-80 {
-    min-height: 80vh;
-}
-
-.min-h-100 {
-    min-height: 100vh;
-}
-
-.h-v-center {
-    display: grid;
-    place-items: center;
-}
-/* layout styling ends */
 
 /* cards css */
 /* 
@@ -248,8 +251,20 @@ svg {
 /* screen sizes upto 900px */
 @media screen and (max-width: 992px) {
 
+    header .logo {
+        width: 10%;
+    }
+
     .heading {
-        font-size: 2.5rem;
+        font-size: 2rem;
+    }
+
+    .about-card {
+        width: 80%;
+    }
+
+    .about-card div p {
+        text-align: left;
     }
 
     .min-h-80{
@@ -257,15 +272,11 @@ svg {
     }
 
     p {
-        font-size: 1.5rem;
+        font-size: 1.25em;
     }
 
     .card {
         flex: 0 1 auto;
-    }
-
-    .extra-padding {
-        padding: 2% 0;
     }
 
     svg {
@@ -275,12 +286,28 @@ svg {
 
 @media screen and (max-width: 420px) {
 
+    header .logo {
+        width: 20%;
+    }
+
     .heading {
         font-size: 1.875rem;
     }
 
+    .max-w-60 {
+        max-width: 80%;
+    }
+
+    .about-card {
+        width: 90%;
+    }
+
+    .about-card div p {
+        text-align: center;
+    }
+
     p {
-        font-size: 1.125rem;
+        font-size: 1em;
     }
 
     .card {
@@ -291,19 +318,11 @@ svg {
         padding: 5% 0;
     }
 
-    .border-bottom-blue {
-        border: none;
-    }
-    
-    .extra-padding {
-        padding: 10% 0;
-    }
-
     svg {
         max-width: 80%;
     }
 
-    .button {
-        flex: 1 1 5%;
+    .button-holder a {
+        flex: auto;
     }
 }
