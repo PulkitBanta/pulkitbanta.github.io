@@ -7,23 +7,22 @@
     <link rel="stylesheet" href="./index.css">
     <title>Pulkit Banta</title>
     <link rel="icon" href="logo.png">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <!-- add meta data for easy search through google/bing and other search engine -->
 </head>
 
 <body>
-    <section class="landing-section">
+    <section class="secondary-bg-color">
         <header class="container">
             <img class="logo" src="logo.png" alt="logo">
             <nav class="nav-links">
-                <li class="nav-item">About</li>
-                <li class="nav-item">Projects</li>
-                <li class="nav-item">Contact</li>
+                <li class="nav-item"><a href="#about">About</a></li>
+                <!-- <li class="nav-item"><a href="#projects">Projects</a></li> -->
+                <li class="nav-item"><a href="#contact">Contact</a></li>
             </nav>
         </header>
             <!-- Starting Intro -->
-            <div class="h-v-center  min-h-80">
-                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 853 513">
+            <div class="h-v-center min-h-80">
+                <svg class="py-1em" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 853 513">
                     <defs>
                       <filter id="Rectangle_3" x="223" y="148" width="294" height="187" filterUnits="userSpaceOnUse">
                         <feOffset dx="3" dy="5" input="SourceAlpha"/>
@@ -255,7 +254,7 @@
                           <rect width="264" height="158" rx="5" stroke="none"/>
                           <rect x="2.5" y="2.5" width="259" height="153" rx="2.5" fill="none"/>
                         </g>
-                        <text id="HELLO_THERE_" data-name="HELLO THERE !" transform="translate(132.069 91)" fill="#e6f4f1" font-size="25" font-family="SegoePrint, Segoe Print"><tspan x="-103.137" y="0">HELLO THERE !</tspan></text>
+                        <text class="monospace-font" id="HELLO_THERE_" data-name="HELLO THERE !" transform="translate(132.069 91)" fill="#e6f4f1"><tspan x="-103.137" y="0">HELLO THERE !</tspan></text>
                       </g>
                       <path id="Path_4" data-name="Path 4" d="M34.986,1.6V27.144H57.531A25.73,25.73,0,0,0,34.986,1.6ZM6,46.469a25.766,25.766,0,1,0,51.531,0V33.586H6ZM28.545,1.6A25.73,25.73,0,0,0,6,27.144H28.545V1.6Z" transform="translate(1223.56 511.765)" fill="#fff"/>
                       <path id="Path_5" data-name="Path 5" d="M-3.193-1.544s16.8,27.292,82.918,31S189.26,150.321,189.26,150.321" transform="translate(1066.444 364.526)" fill="none" stroke="#dbbd81" stroke-width="5"/>
@@ -533,104 +532,100 @@
                           <line id="Line_129" data-name="Line 129" y2="12.119" fill="none" stroke="#dbbd81" stroke-width="1"/>
                         </g>
                       </g>
-                      <text id="PulkitBanta" transform="translate(1255 647)" fill="#dbbd81" font-size="18" font-family="LucidaHandwriting-Italic, Lucida Handwriting" font-style="italic"><tspan x="0" y="0">PulkitBanta</tspan></text>
+                      <text class="times-font" id="PulkitBanta" transform="translate(1255 647)" fill="#dbbd81" font-size="18"><tspan x="0" y="0">PulkitBanta</tspan></text>
                     </g>
                   </svg>                  
-                <p class="heading w-60 text-center py-1rem cursive-font" data-aos="fade-in" data-aos-duration="1000">
+                <p class="heading max-w-60 cursive-font py-1em" data-aos="fade-in" data-aos-duration="1000">
                     Endless coding, sleepless nights, bug fixing and some music is what it takes to build a project.
                 </p>
             </div>
     </section>
-        <!-- Project Cards -->
-        <div id="card-section" class="min-h-80 color-darkblue h-v-center card-section" data-aos="zoom-in" data-aos-once="true">
-            <div class="container">
-                <p class="sub-heading text-center">
-                    <span>Have a look at some of my projects software 😀</span>
+    <!-- Personal Information -->
+    <section id="about" class="h-v-center min-h-100 extra-padding primary-bg-color">
+        <div class="container about-card">
+            <p class="heading py-halfem" data-aos="fade-left">A little about me !</p>
+            <div data-aos="fade-right">
+                <p>
+                    Hi, I am Pulkit Banta, a full-stack web-developer using Angular for the frontend development and Spring-Boot,
+                    Hibernate and MySQL for the backend. I also have some experience in Android Development, along with some projects.
                 </p>
-                <div class="cards-holder">
-                    <a class="card shadow" href="https://github.com/PulkitBanta/Frezzo" target="_blank">
-                        <p class="card-title">
-                            Frezzo
-                        </p>
-                        <div class="card-body">
-                            Frezzo is a smarter way to manage the canteen system or pick up diners with client-side state management for the products. Instead of waiting in long queues, order your food easily.
-                        </div>
-                    </a>
-                    <a class="card shadow" href="https://play.google.com/store/apps/details?id=com.pulkitbanta.tictactoe" target="_blank">
-                        <p class="card-title">
-                            Tic Tac Toe
-                        </p>
-                        <div class="card-body">
-                            Play Tic Tac Toe on your Android phone. No need to waste paper to play puzzle games! Now you can play Tic Tac Toe on your Android device for free. The version appears to be same as playing on a paper with a pen.
-                        </div>
-                    </a>
-                    <a class="card shadow" href="https://mausamvibhaag.netlify.app" target="_blank">
-                        <p class="card-title">
-                            Mausam Vibhaag
-                        </p>
-                        <div class="card-body">
-                            A web-based weather application that provides precise weather according to the location provided. The weather can be displayed either in English or Hindi.
-                        </div>
-                    </a>
-                    <a class="card shadow" href="https://github.com/PulkitBanta/ReNews" target="_blank">
-                        <p class="card-title">
-                            ReNews
-                        </p>
-                        <div class="card-body">
-                            ReNEWS is a news app that selects the latest and best top 30 dev news from HackerNews. It provides you with a list of the top 30 news. Get updated with the latest news and current affairs in a jiffy!
-                        </div>
-                    </a>
-                    <a class="card shadow" href="https://github.com/PulkitBanta/Dev-Blogg" target="_blank">
-                        <p class="card-title">
-                            Dev-Blogg
-                        </p>
-                        <div class="card-body">
-                            Dev-Blogg is a full-stack web-application where you can write Dev Bloggs and showcase them to the community. All CRUD operations can be performed and posts can be managed by the user.
-                        </div>
-                    </a>
-                </div>
+                    <hr />
+                <p>
+                    When I am not writing code or fixings bugs, I enjoy my time playing some games and making some designs which may
+                    come handy in future.
+                </p>
             </div>
         </div>
-        <!-- Personal Information -->
-        <div id="info" class="h-v-center min-h-60 extra-padding">
-            <div class="container">
-                <p class="text-center" data-aos="fade-left" data-aos-once="true"><span class="sub-heading pink">A little about me !</span></p>
-                <div data-aos="fade-right" data-aos-once="true">
-                    <p class="py-1rem sub-text">
-                    Hi, I am Pulkit Banta, a full-stack web-developer using <a href="https://angular.io" target="_blank" class="link">Angular</a> for the frontend development and <a href="https://spring.io/projects/spring-boot" target="_blank" class="link">Spring-Boot</a>,
-                    <a href="https://hibernate.org/" target="_blank" class="link">Hibernate</a> and <a href="https://www.mysql.com/" target="_blank" class="link">MySQL</a> for the backend. I also have some experience in <a href="https://developer.android.com/"
-                    target="_blank" class="link">Android Development</a>, along with some projects.
+    </section>
+    <!-- Project Cards -->
+    <!-- <div id="card-section" class="min-h-80 color-darkblue h-v-center card-section" data-aos="zoom-in" data-aos-once="true">
+        <div class="container">
+            <p class="sub-heading text-center">
+                <span>Have a look at some of my projects software 😀</span>
+            </p>
+            <div class="cards-holder">
+                <a class="card shadow" href="https://github.com/PulkitBanta/Frezzo" target="_blank">
+                    <p class="card-title">
+                        Frezzo
                     </p>
-                    <p class="py-1rem sub-text">
-                    When I am not writing code or fixings bugs 🐛, I enjoy my time playing some games 🎮 and making some designs which may come handy in future.
+                    <div class="card-body">
+                        Frezzo is a smarter way to manage the canteen system or pick up diners with client-side state management for the products. Instead of waiting in long queues, order your food easily.
+                    </div>
+                </a>
+                <a class="card shadow" href="https://play.google.com/store/apps/details?id=com.pulkitbanta.tictactoe" target="_blank">
+                    <p class="card-title">
+                        Tic Tac Toe
                     </p>
-                </div>
+                    <div class="card-body">
+                        Play Tic Tac Toe on your Android phone. No need to waste paper to play puzzle games! Now you can play Tic Tac Toe on your Android device for free. The version appears to be same as playing on a paper with a pen.
+                    </div>
+                </a>
+                <a class="card shadow" href="https://mausamvibhaag.netlify.app" target="_blank">
+                    <p class="card-title">
+                        Mausam Vibhaag
+                    </p>
+                    <div class="card-body">
+                        A web-based weather application that provides precise weather according to the location provided. The weather can be displayed either in English or Hindi.
+                    </div>
+                </a>
+                <a class="card shadow" href="https://github.com/PulkitBanta/ReNews" target="_blank">
+                    <p class="card-title">
+                        ReNews
+                    </p>
+                    <div class="card-body">
+                        ReNEWS is a news app that selects the latest and best top 30 dev news from HackerNews. It provides you with a list of the top 30 news. Get updated with the latest news and current affairs in a jiffy!
+                    </div>
+                </a>
+                <a class="card shadow" href="https://github.com/PulkitBanta/Dev-Blogg" target="_blank">
+                    <p class="card-title">
+                        Dev-Blogg
+                    </p>
+                    <div class="card-body">
+                        Dev-Blogg is a full-stack web-application where you can write Dev Bloggs and showcase them to the community. All CRUD operations can be performed and posts can be managed by the user.
+                    </div>
+                </a>
             </div>
         </div>
-        <!-- Contact Section -->
-        <div id="contact" class="min-h-60 h-v-center contact extra-padding">
-            <div class="container">
-                <div data-aos="fade-down" data-aos-once="true">
-                    <p class="sub-heading">
-                        <span class="">Have something to discuss ?</span>
-                    </p>
-                    <p class="py-1rem sub-text">
-                        I'm always open for discussions, whether it is related to some project or if you need some guidance.
-                    </p>
-                </div>
-                <div class="button-holder">
-                    <a href="https://www.linkedin.com/in/pulkitbanta/" class="linkedin button shadow" target="_blank" data-aos="fade-up" data-aos-once="true" data-aos-once="true">LinkedIn</a>
-                    <a href="https://github.com/PulkitBanta" class="github button shadow" target="_blank" data-aos="fade-down" data-aos-once="true" data-aos-once="true">GitHub</a>
-                    <a href="https://twitter.com/pulkitbanta" class="twitter button shadow" target="_blank" data-aos="fade-up" data-aos-once="true" data-aos-once="true">Twitter</a>
-                    <a href="mailto:pulkitbanta01@gmail.com?Subject=Hello%20Pulkit!" class="mail button shadow" target="_blank" data-aos="fade-down" data-aos-once="true" data-aos-once="true">Gmail</a>
-                </div>
+    </div> -->
+    <!-- Contact Section -->
+    <section id="contact" class="min-h-60 h-v-center primary-bg-color">
+        <div class="container">
+            <hr />
+            <div data-aos="fade-down" data-aos-once="true">
+                <p class="heading times-font">Have something to discuss ?</p>
+                <p class="py-1em sub-text times-font">
+                    I'm always open for discussions, whether it is related to some project or if you need some guidance.
+                </p>
+            </div>
+            <div class="button-holder">
+                <a href="https://www.linkedin.com/in/pulkitbanta/" class="linkedin" target="_blank" data-aos="fade-up" data-aos-once="true" data-aos-once="true">LinkedIn</a>
+                <a href="https://github.com/PulkitBanta" class="github" target="_blank" data-aos="fade-down" data-aos-once="true" data-aos-once="true">GitHub</a>
+                <a href="https://twitter.com/pulkitbanta" class="twitter" target="_blank" data-aos="fade-up" data-aos-once="true" data-aos-once="true">Twitter</a>
+                <a href="mailto:pulkitbanta01@gmail.com?Subject=Hello%20Pulkit!" class="mail" target="_blank" data-aos="fade-down" data-aos-once="true" data-aos-once="true">Gmail</a>
             </div>
         </div>
+    </section>
     </div>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        AOS.init();
-    </script>
 </body>
 
 </html>

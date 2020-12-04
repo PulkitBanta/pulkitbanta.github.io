@@ -1,21 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
 
-/* root css */
+/* root styling */
 * {
     margin: 0px;
     padding: 0px;
     font-family: "Montserrat", sans-serif;
     font-weight: 500;
-    /* background-color: #e6f4f1; */
+    scroll-behavior: smooth;
 }
+/* root styling ends */
 
-/* Navbar and landing section */
-.landing-section {
-    background-color: #5e82c2;
-    color: #e6f4f1;
-}
-
-.landing-section header {
+/* Navbar styling */
+header {
     background-color: rgba(0, 0, 0, 0.2);
     display: flex;
     justify-content: flex-end;
@@ -25,8 +21,9 @@
 
 header .logo {
     margin-right: auto;
-    max-width: 5%;
-    max-height: 5%;
+    max-width: 4%;
+    max-height: 4%;
+    padding: 0.5rem;
 }
 
 .nav-links {
@@ -34,85 +31,114 @@ header .logo {
 }
 
 .nav-links li {
-    display: inline-block;
     padding: 5px 15px;
-    color: white;
+    display: inline-block;
+    transition: all 0.3s ease;
 }
-/* navbar ends */
 
-/* fonts */
+.nav-links li a {
+    color: white;
+    text-decoration: none;
+}
+
+.nav-links li:hover {
+    cursor: pointer;
+    color: #e6f4f1;
+    transform: scale(1.1);
+}
+/* navbar styling ends */
+
+/* font styling */
 .cursive-font {
     font-family: cursive;
     font-weight: 100;
 }
 
-/* fonts ends */
-
-.container {
-    width: 80%;
-    margin: 0 auto;
+.monospace-font {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.5em;
 }
 
-/* font css */
+.times-font {
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 500;
+}
+/* font styling ends */
+
+/* typography styling */
+.max-w-60 {
+    max-width: 60%;
+    padding: 1em auto;
+    text-align: center;
+}
+
 p {
     font-weight: 600;
     font-size: 1.4rem;
 }
 
 .heading {
-    font-size: 3rem;
-}
-
-.sub-heading {
-    font-size: 2rem;
-    font-weight: 900;
-    padding-left: 1%;
+    font-size: 2.5rem;
 }
 
 .sub-text {
     margin-left: 2%;
 }
 
-.py-1rem {
-    padding: 1rem 0;
-    max-width: 70%;
-}
-
-.sec-color {
-    color: var(--sec-color);
+.bold {
+    font-weight: 700;
 }
 
 hr {
-    margin: 3em 0;
-    background-color: var(--section-border);
+    margin: 1em 0;
+    background-color: #dbbd81;
     border: none;
     height: 0.2rem;
 }
 
-/* text styling and alignment */
-.text-center {
+.py-1em {
+    padding: 1em 0;
+}
+
+.py-halfem {
+    padding: 0.5em 0;
+}
+/* typography styling ends */
+
+/* colors styling */
+.primary-bg-color {
+    background-color: #e6f4f1;
+    color: #707070;
+}
+
+.secondary-bg-color {
+    background-color: #5e82c2;
+    color: #e6f4f1;
+}
+/* color styling ends */
+
+/* cards styling */
+.about-card {
+    padding: 3rem;
+    max-width: 60%;
     text-align: center;
-    margin: auto;
+    border-radius: 8px;
+    box-shadow: 0 0px 15px rgba(0, 0, 0, 0.2);
+}
+/* cards styling ends */
+
+/* layout styling */
+.container {
+    width: 80%;
+    margin: 0 auto;
 }
 
-.text-left {
-    text-align: left;
+svg {
+    max-width: 30%;
 }
 
-.text-right {
-    text-align: right;
-}
-
-.text-justify {
-    text-align: justify;
-}
-
-.color-darkblue, .color-darkblue>div>a {
-    color: #162447;
-}
-
-.pink {
-    color: #ff5f7a;
+.min-h-60 {
+    min-height: 60vh;
 }
 
 .min-h-80 {
@@ -123,23 +149,14 @@ hr {
     min-height: 100vh;
 }
 
-.min-h-60 {
-    min-height: 60vh;
-}
-
 .h-v-center {
     display: grid;
     place-items: center;
 }
-
-/* links css */
-a.link {
-    color: var(--link);
-    text-decoration: none;
-}
+/* layout styling ends */
 
 /* cards css */
-
+/* 
 .card-section {
     margin: 2% auto;
 }
@@ -182,36 +199,31 @@ a.link {
     margin: 1rem 0;
     text-align: center;
     color: #2c4b68;
-}
+} */
 
-/* contact section */
-
-.contact {
-    color: var(--title);
-}
-
+/* contact buttons styling */
 .button-holder {
+    margin-top: 1%;
     display: flex;
     flex-wrap: wrap;
-    margin-top: 1%;
 }
 
 .button-holder a {
     text-decoration: none;
-    color: var(--btn-color);
+    color: white;
     font-weight: bold;
-}
 
-.button {
     flex: 0 1 5%;
-    padding: 1rem 1rem;
+    padding: 1em;
     margin: 0.5rem;
     text-align: center;
     border-radius: 8px;
-    transition: all .2s ease-in-out;
+    transition: all .3s ease-in-out;
+
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
 }
 
-.button:hover {
+.button-holder a:hover {
     transform: scale(1.125) !important;
 }
 
@@ -220,7 +232,7 @@ a.link {
 }
 
 .github {
-    background-color: #333;
+    background-color: #707070;
 }
 
 .twitter {
@@ -230,15 +242,7 @@ a.link {
 .mail {
     background-color: #B23121;
 }
-
-/* other css */
-.shadow {
-    box-shadow: 0 0 10px rgba(var(--rgb-black), 0.5);
-}
-
-svg {
-    max-width: 30%;
-}
+/* contact section styling ends */
 
 /* small screen sizes upto 400px*/
 /* screen sizes upto 900px */
@@ -246,15 +250,6 @@ svg {
 
     .heading {
         font-size: 2.5rem;
-    }
-
-    .sub-heading {
-        font-size: 1.5rem;
-        font-weight: 700;
-    }
-
-    .min-h-60{
-        padding: 5% 0;
     }
 
     .min-h-80{
@@ -269,10 +264,6 @@ svg {
         flex: 0 1 auto;
     }
 
-    .py-1rem {
-        max-width: 80%;
-    }
-
     .extra-padding {
         padding: 2% 0;
     }
@@ -282,15 +273,10 @@ svg {
     }
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 420px) {
 
     .heading {
         font-size: 1.875rem;
-    }
-
-    .sub-heading {
-        font-weight: 700;
-        font-size: 1.5rem;
     }
 
     p {
@@ -301,16 +287,12 @@ svg {
         flex: 0 1 auto;
     }
 
-    .min-h-60, .min-h-80 {
+    .min-h-80 {
         padding: 5% 0;
     }
 
     .border-bottom-blue {
         border: none;
-    }
-
-    .py-1rem {
-        max-width: 90%;
     }
     
     .extra-padding {
@@ -319,5 +301,9 @@ svg {
 
     svg {
         max-width: 80%;
+    }
+
+    .button {
+        flex: 1 1 5%;
     }
 }
