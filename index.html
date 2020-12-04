@@ -13,12 +13,21 @@
 <body>
     <section class="secondary-bg-color">
         <header>
-            <img class="logo" src="logo.png" alt="logo">
-            <nav class="nav-links">
-                <a href="#about">About</a>
-                <!-- <a href="#projects">Projects</a> -->
-                <a href="#contact">Contact</a>
-            </nav>
+          <img class="logo" src="logo.png" alt="logo">
+          <a id="nav-toggle">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 21">
+              <g id="Icon_feather-menu" data-name="Icon feather-menu" transform="translate(-3 -7.5)">
+                <path id="Path_6" data-name="Path 6" d="M4.5,18h27" fill="none" stroke="#e6f4f1" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+                <path id="Path_7" data-name="Path 7" d="M4.5,9h27" fill="none" stroke="#e6f4f1" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+                <path id="Path_8" data-name="Path 8" d="M4.5,27h27" fill="none" stroke="#e6f4f1" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+              </g>
+            </svg>
+          </a>
+          <nav class="nav-links">
+              <a href="#about">About</a>
+              <!-- <a href="#projects">Projects</a> -->
+              <a href="#contact">Contact</a>
+          </nav>
         </header>
             <!-- Starting Intro -->
             <div class="h-v-center min-h-80">
@@ -626,6 +635,20 @@
         </div>
     </section>
     </div>
+    <script>
+      document.querySelector('#nav-toggle').addEventListener("click", () => {
+        var x = document.querySelector(".nav-links");
+
+        x.querySelectorAll('a').forEach(item => {
+          if (item.style.display === "none") {
+            item.style.display = "block";
+          } else {
+            item.style.display = "none";
+          }
+        })
+
+      })
+    </script>
 </body>
 
 </html>

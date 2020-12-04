@@ -41,18 +41,23 @@ svg {
 
 /* Navbar styling */
 header {
-    background-color: rgba(0, 0, 0, 0.2);
     display: flex;
-    justify-content: flex-end;
-    align-items: center;
     padding: 0 10%;
+    align-items: center;
+    justify-content: flex-end;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+header a svg {
+    display: none;
+    cursor: pointer;
 }
 
 header .logo {
-    margin-right: auto;
     width: 5%;
     height: 5%;
     padding: 0.5rem;
+    margin-right: auto;
 }
 
 .nav-links {
@@ -61,14 +66,13 @@ header .logo {
 
 .nav-links a {
     padding: 1em;
-    display: inline-block;
-    transition: all 0.3s ease;
     color: white;
+    display: inline-block;
     text-decoration: none;
+    transition: all 0.3s ease;
 }
 
-.nav-links a:hover {
-    cursor: pointer;
+.nav-links a:hover {    
     color: #a4ddd1;
     transform: scale(1.1);
 }
@@ -76,18 +80,17 @@ header .logo {
 
 /* font styling */
 .cursive-font {
-    font-family: cursive;
     font-weight: 100;
+    font-family: cursive;
 }
 
 .monospace-font {
     font-family: 'Courier New', Courier, monospace;
-    font-size: 1.5em;
 }
 
 .times-font {
-    font-family: 'Times New Roman', Times, serif;
     font-weight: 500;
+    font-family: 'Times New Roman', Times, serif;
 }
 /* font styling ends */
 
@@ -286,8 +289,27 @@ hr {
 
 @media screen and (max-width: 420px) {
 
+    header {
+        flex-direction: column;
+    }
+
+    .nav-links a {
+        display: none;
+        text-align: center;
+    }
+
+    header a svg {
+        top: 2%;
+        right: 5%;
+        max-width: 10%;
+        display: initial;
+        position: absolute;
+    }
+
     header .logo {
+        align-self: flex-start;
         width: 20%;
+        margin: 0;
     }
 
     .heading {
