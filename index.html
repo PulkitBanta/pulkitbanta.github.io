@@ -639,13 +639,13 @@
       document.querySelector('#nav-toggle').addEventListener("click", () => {
         var x = document.querySelector(".nav-links");
 
-        x.querySelectorAll('a').forEach(item => {
-          if (item.style.display === "none") {
-            item.style.display = "block";
-          } else {
-            item.style.display = "none";
-          }
-        })
+        if(!x.classList.contains('block-display')) {
+          console.log("block-display added")
+          x.classList.add('block-display');
+        } else {
+          console.log("block-display removed")
+          x.classList.remove('block-display');
+        }
 
       })
     </script>

@@ -294,10 +294,19 @@ hr {
     }
 
     .nav-links a {
-        display: none;
+        display: block;
         text-align: center;
+        border-bottom: 1px solid white;
     }
 
+    .nav-links {
+        display: none;
+    }
+
+    .block-display {
+        display: block;
+    }
+    
     header a svg {
         top: 2%;
         right: 5%;
