@@ -106,6 +106,10 @@ p {
     font-size: 1.4rem;
 }
 
+.text-center {
+    text-align: center;
+}
+
 .heading {
     font-size: 2.5rem;
 }
@@ -144,68 +148,64 @@ hr {
     background-color: #5e82c2;
     color: #e6f4f1;
 }
+
+.primary-color {
+    color: #e6f4f1;
+}
+
+.secondary-color {
+    color: #5e82c2;
+}
 /* color styling ends */
 
 /* cards styling */
 .about-card {
-    font-weight: 500;
-    padding: 3rem;
     width: 50%;
     text-align: center;
-    border-radius: 8px;
-    box-shadow: 0 0px 15px rgba(0, 0, 0, 0.2);
 }
 
 .about-card div p {
     font-weight: 500;
 }
-/* cards styling ends */
-
-/* cards css */
-/* 
-.card-section {
-    margin: 2% auto;
-}
 
 .cards-holder {
-    margin-top: 2rem;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.cards-holder a {
-    text-decoration: none;
+    flex-direction: column;
+    justify-content: space-around;
 }
 
 .card {
-    flex: 0 1 25%;
-    margin: 0.5em;
-    padding: 1.5rem 2rem 0.5rem 2rem;
-    border-radius: 4px;
-    border: 2px solid var(--sec-color);
-    transition: all 0.3s ease-in-out;
+    display: flex;
+    margin: 2em auto;
+    align-items: center;
+    justify-content: space-around;
 }
 
-.card:hover {
-    filter: invert(1);
-    transform: scale(1.075);
-    background-color: rgba(255, 255, 255, 0.7);
+.card > div {
+    text-align: center;
+    align-self: center;
 }
 
 .card-title {
-    font-size: 1.6rem;
-    color: var(--title);
+    display: block;
+    font-weight: 600;
     text-align: center;
-    padding: 0 0 0.5rem 0;
-    border-bottom: 2px solid var(--light-blue);
+    margin-bottom: 1em;
+    border-bottom: 3px solid #dbbd81;
 }
 
 .card-body {
-    margin: 1rem 0;
+    width: 40%;
     text-align: center;
-    color: #2c4b68;
-} */
+}
+
+.shadow-box {
+    padding: 3rem;
+    font-weight: 500;
+    border-radius: 8px;
+    box-shadow: 0 0px 15px rgba(0, 0, 0, 0.2);
+}
+/* cards styling ends */
 
 /* contact buttons styling */
 .button-holder {
@@ -222,7 +222,6 @@ hr {
     flex: 0 1 5%;
     padding: 1em;
     margin: 0.5rem;
-    text-align: center;
     border-radius: 8px;
     transition: all .3s ease-in-out;
 
@@ -279,7 +278,17 @@ hr {
     }
 
     .card {
-        flex: 0 1 auto;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .card-title {
+        font-size: 1.5em;
+    }
+
+    .card-body {
+        width: 70%;
     }
 
     svg {
@@ -341,8 +350,8 @@ hr {
         font-size: 1em;
     }
 
-    .card {
-        flex: 0 1 auto;
+    .card-body {
+        width: 90%;
     }
 
     .min-h-80 {
@@ -355,5 +364,11 @@ hr {
 
     .button-holder a {
         flex: auto;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    .about-card {
+        margin: 1em;
     }
 }
