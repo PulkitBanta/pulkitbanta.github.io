@@ -199,11 +199,40 @@ hr {
     text-align: center;
 }
 
+.card-body a {
+    text-decoration: none;
+    color: #5e82c2;
+}
+
+.card-body a:hover {
+    text-decoration: underline;
+    color: #1da1f2;
+}
+
 .shadow-box {
     padding: 3rem;
     font-weight: 500;
     border-radius: 8px;
     box-shadow: 0 0px 15px rgba(0, 0, 0, 0.2);
+}
+
+.circle {
+    display: table;
+    color: #5e82c2;
+    
+    width: 20vw;
+    height: 20vw;
+    border-radius: 50%;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    
+    background-size: cover;
+    background-position: center;
+    background-image: url(./circle-bg.svg);
+}
+
+.circle > p {
+    display: table-cell;
+    vertical-align: middle;
 }
 /* cards styling ends */
 
@@ -289,6 +318,10 @@ hr {
 
     .card-body {
         width: 70%;
+    }
+
+    .circle {
+        display: none;
     }
 
     svg {
