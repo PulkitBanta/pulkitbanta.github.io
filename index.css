@@ -200,13 +200,14 @@ hr {
 }
 
 .card-body a {
-    text-decoration: none;
     color: #5e82c2;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
 }
 
 .card-body a:hover {
-    text-decoration: underline;
     color: #1da1f2;
+    text-decoration: underline;
 }
 
 .shadow-box {
