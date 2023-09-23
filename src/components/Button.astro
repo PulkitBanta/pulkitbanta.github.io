@@ -3,15 +3,18 @@ import type { HTMLAttributes } from 'astro/types';
 
 interface Props extends HTMLAttributes<'a'> {
   primary?: boolean;
+  classname?: string;
 }
 
-const { primary = false, ...rest } = Astro.props;
+const { primary = false, classname = '', ...rest } = Astro.props;
 
-const baseStyling = 'cursor-pointer  mx-auto flex items-center gap-2 rounded-lg px-8 py-3 text-lg md:text-2xl';
-const primaryStyle = 'bg-white';
-const secondaryStyle = 'border border-slate-50 text-slate-200';
+const baseStyling =
+  'cursor-pointer w-fit flex items-center gap-2 rounded-lg px-8 py-3 text-lg md:text-2xl hover:-skew-y-2 hover:scale-110  transition-all duration-300';
+const primaryStyle =
+  'font-medium hover:font-normal bg-slate-50 hover:bg-slate-900/70 hover:text-white hover:border-2 hover:border-slate-200';
+const secondaryStyle = 'border-2 border-slate-50 text-slate-200';
 ---
 
-<a class={`${baseStyling} ${primary ? primaryStyle : secondaryStyle}`} {...rest}>
+<a class={`${baseStyling} ${primary ? primaryStyle : secondaryStyle} ${classname}`} {...rest}>
   <slot />
 </a>
