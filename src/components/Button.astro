@@ -1,0 +1,17 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+
+interface Props extends HTMLAttributes<'a'> {
+  primary?: boolean;
+}
+
+const { primary = false, ...rest } = Astro.props;
+
+const baseStyling = 'cursor-pointer  mx-auto flex items-center gap-2 rounded-lg px-8 py-3 text-lg md:text-2xl';
+const primaryStyle = 'bg-white';
+const secondaryStyle = 'border border-slate-50 text-slate-200';
+---
+
+<a class={`${baseStyling} ${primary ? primaryStyle : secondaryStyle}`} {...rest}>
+  <slot />
+</a>

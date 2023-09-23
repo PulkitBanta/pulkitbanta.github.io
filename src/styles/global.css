@@ -1,0 +1,75 @@
+@tailwind base;
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('/fonts/Poppins-Medium.tff') format('tff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('/fonts/Poppins-Bold.tff') format('tff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('/fonts/Poppins-SemiBold.tff') format('tff');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('/fonts/Poppins-Regular.tff') format('tff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  html {
+    font-family: 'Poppins';
+    @apply text-slate-800;
+  }
+}
+
+.animate-typing {
+}
+
+.animate-typing span {
+  @apply relative block w-fit overflow-hidden;
+  animation: 16s steps(4) infinite scroll;
+}
+
+.animate-typing span::after {
+  content: '';
+  animation: 4s ease-in infinite type;
+  @apply absolute top-0 z-10 block h-full w-full rounded-lg rounded-t-none rounded-bl-none border-l-4 border-white/50 bg-indigo-800;
+}
+
+@keyframes scroll {
+  from {
+    transform: translateY(0%);
+  }
+  to {
+    transform: translateY(-400%);
+  }
+}
+
+@keyframes type {
+  from {
+    @apply left-0 border-l-0;
+  }
+  70% {
+    @apply left-full border-l-4;
+  }
+  to {
+    @apply left-0 border-l-4;
+  }
+}

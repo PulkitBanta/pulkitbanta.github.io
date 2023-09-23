@@ -1,16 +1,32 @@
 ---
-
+import Button from '../components/Button.astro';
+import '../styles/global.css';
 ---
 
-<html lang='en'>
+<html lang="en">
   <head>
-    <meta charset='utf-8' />
-    <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
-    <meta name='viewport' content='width=device-width' />
-    <meta name='generator' content={Astro.generator} />
-    <title>Astro</title>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pulkit Banta</title>
   </head>
   <body>
-    <h1>Astro</h1>
+    <section
+      class="flex flex-col justify-center bg-slate-800 px-4 pb-28 pt-40 sm:px-20 sm:pb-40 sm:pt-52 lg:px-40 lg:pb-52 lg:pt-60"
+    >
+      <h1 class="text-left text-4xl font-bold leading-normal text-white lg:text-8xl">
+        Hi 👋, I'm
+        <div class="animate-typing h-[52px] w-fit overflow-hidden rounded-lg bg-indigo-800 px-2 lg:h-24">
+          <span>Pulkit Banta</span>
+          <span>a web developer</span>
+          <span>an enthusiast</span>
+          <span>a learner</span>
+        </div>
+      </h1>
+      <div class="mx-auto mt-12 flex items-center gap-6 sm:mt-28">
+        <Button primary href="https://www.github.com/pulkitbanta" target="_blank">GitHub</Button>
+        <Button href="mailto:pulkitbanta01@gmail.com">Drop an email</Button>
+      </div>
+    </section>
   </body>
 </html>

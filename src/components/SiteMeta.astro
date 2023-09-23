@@ -1,0 +1,29 @@
+---
+const title = 'Pulkit Banta';
+const description =
+  "I'm Pulkit, a front-end developer and enthusiat. I love building websites and products that scale and look great";
+const url = 'https://pulkitbanta.github.io';
+const image = '';
+---
+
+<title>{title}</title>
+<meta name="description" content={description} />
+
+{/* Google meta tags */}
+<meta itemprop="name" content={title} />
+<meta itemprop="description" content={description} />
+<meta itemprop="image" content={image} />
+
+{/* Facebook Meta tags */}
+<meta property="og:url" content={url} />
+<meta property="og:type" content="website" />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={image} />
+
+{/* twitter Meta tags */}
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@FunnelStory" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={image} />
