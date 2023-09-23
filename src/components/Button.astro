@@ -2,14 +2,16 @@
 import type { HTMLAttributes } from 'astro/types';
 
 interface Props extends HTMLAttributes<'a'> {
+  small?: boolean;
   primary?: boolean;
   classname?: string;
 }
 
-const { primary = false, classname = '', ...rest } = Astro.props;
+const { small = false, primary = false, classname = '', ...rest } = Astro.props;
 
 const baseStyling =
-  'cursor-pointer w-fit flex items-center gap-2 rounded-lg px-8 py-3 text-lg md:text-2xl hover:-skew-y-2 hover:scale-110  transition-all duration-300';
+  'cursor-pointer w-fit flex items-center gap-2 rounded-lg hover:-skew-y-2 hover:scale-110  transition-all duration-300' +
+  (small ? ' px-3 py-2 text-base md:text-xl' : ' px-8 py-3 text-lg md:text-2xl');
 const primaryStyle =
   'font-medium hover:font-normal bg-slate-50 hover:bg-slate-900/70 hover:text-white hover:border-2 hover:border-slate-200';
 const secondaryStyle = 'border-2 border-slate-50 text-slate-200';

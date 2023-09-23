@@ -37,6 +37,9 @@
     font-family: 'Poppins';
     @apply text-slate-800;
   }
+  p {
+    @apply text-lg font-medium leading-normal md:text-xl;
+  }
 }
 
 .animate-typing {
