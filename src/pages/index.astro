@@ -1,5 +1,8 @@
 ---
 import Button from '../components/Button.astro';
+import EmailIcon from '../components/icons/Email-icon.astro';
+import GithubMarkIcon from '../components/icons/Github-mark-icon.astro';
+import LaptopIcon from '../components/icons/Laptop-icon.astro';
 import '../styles/global.css';
 ---
 
@@ -12,20 +15,27 @@ import '../styles/global.css';
   </head>
   <body>
     <section
-      class="flex flex-col justify-center bg-slate-800 px-4 pb-28 pt-40 sm:px-20 sm:pb-40 sm:pt-52 lg:px-40 lg:pb-52 lg:pt-60"
+      class="flex flex-col flex-wrap justify-center gap-20 bg-slate-800 px-4 pb-20 pt-12 sm:px-20 sm:pb-40 md:skew-y-2 md:scale-110 md:flex-row md:pt-32 lg:gap-32 lg:px-40 lg:pb-52 lg:pt-60"
     >
-      <h1 class="text-left text-4xl font-bold leading-normal text-white lg:text-8xl">
-        Hi 👋, I'm
-        <div class="animate-typing h-[52px] w-fit overflow-hidden rounded-lg bg-indigo-800 px-2 lg:h-24">
-          <span>Pulkit Banta</span>
-          <span>a web developer</span>
-          <span>an enthusiast</span>
-          <span>a learner</span>
+      <LaptopIcon class="w-full max-w-lg md:-skew-y-2" />
+      <div class="flex flex-col justify-center bg-slate-800 md:-skew-y-2">
+        <h1 class="text-left text-5xl font-bold leading-normal text-white sm:text-7xl">
+          Hi <span class="animate-wave inline-block">👋</span>, I'm
+          <div class="animate-typing mt-2 h-16 w-fit overflow-hidden rounded-lg bg-indigo-800 px-2 sm:h-[72px]">
+            <span>Pulkit Banta</span>
+            <span>a developer</span>
+            <span>an enthusiast</span>
+            <span>a learner</span>
+          </div>
+        </h1>
+        <div class="mt-8 flex flex-wrap gap-6 sm:mt-12">
+          <Button primary target="_blank" href="https://www.github.com/pulkitbanta">
+            <GithubMarkIcon height={24} width={24} /> GitHub
+          </Button>
+          <Button href="mailto:pulkitbanta01@gmail.com" target="_blank">
+            <EmailIcon height={24} width={24} /> Drop an email
+          </Button>
         </div>
-      </h1>
-      <div class="mx-auto mt-12 flex items-center gap-6 sm:mt-28">
-        <Button primary href="https://www.github.com/pulkitbanta" target="_blank">GitHub</Button>
-        <Button href="mailto:pulkitbanta01@gmail.com">Drop an email</Button>
       </div>
     </section>
   </body>
