@@ -2,9 +2,9 @@
 import Button from '../components/Button.astro';
 import ProjectCard from '../components/ProjectCard.astro';
 import WorkCardList from '../components/WorkCardList.astro';
-import EmailIcon from '../components/icons/Email-icon.astro';
 import GithubMarkIcon from '../components/icons/Github-mark-icon.astro';
 import LaptopIcon from '../components/icons/Laptop-icon.astro';
+import LinkedInIcon from '../components/icons/LinkedIn-icon.astro';
 import { projects } from '../data/projects';
 import '../styles/global.css';
 ---
@@ -28,15 +28,16 @@ import '../styles/global.css';
             <span>Pulkit Banta</span>
             <span>a developer</span>
             <span>an enthusiast</span>
-            <span>a learner</span>
+            <span>a programmer</span>
           </div>
         </h1>
-        <div class="mt-8 flex flex-wrap gap-6 sm:mt-12">
+        <p class="mb-3 mt-8 text-white sm:mt-12">Connect with me :)</p>
+        <div class="flex flex-wrap gap-6">
           <Button primary target="_blank" href="https://www.github.com/pulkitbanta">
             <GithubMarkIcon height={28} width={28} /> GitHub
           </Button>
-          <Button href="mailto:pulkitbanta01@gmail.com" target="_blank">
-            <EmailIcon height={28} width={28} /> Drop an email
+          <Button href="https://www.linkedin.com/in/pulkitbanta" target="_blank">
+            <LinkedInIcon height={28} width={28} /> LinkedIn
           </Button>
         </div>
       </div>
