@@ -13,15 +13,15 @@ const { title, description, note, repoLink, dayTime } = Astro.props;
 ---
 
 <div
-  class="flex max-w-lg flex-col justify-between rounded-lg border-2 border-slate-500 px-8 py-8 text-slate-700 shadow-lg drop-shadow-xl"
+  class="flex max-w-lg flex-col justify-between rounded-lg border-2 border-slate-500 px-8 pb-4 pt-8 text-slate-700 shadow-lg drop-shadow-xl"
 >
   <div>
     <h3 class="text-2xl font-medium text-slate-800">{title}</h3>
-    <p class="mt-2 text-base">
+    <p class="mt-8 text-lg">
       {description}
     </p>
   </div>
-  <strong class="mb-2 mt-8 text-sm">PS: {note}</strong>
+  <strong class="ml-4 mt-4 text-sm">PS: {note}</strong>
   <div class="flex items-center justify-between">
     <Button small target="_blank" href={repoLink} classname="text-slate-700">
       <GithubMarkIcon height={24} width={24} />

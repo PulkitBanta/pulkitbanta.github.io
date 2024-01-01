@@ -2,7 +2,11 @@
 module.exports = {
   content: ['./src/**/*.{astro,html}'],
   theme: {
-    extend: {},
+    extend: {
+      screens: {
+        xs: '425px',
+      },
+    },
   },
   plugins: [],
 };

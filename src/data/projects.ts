@@ -19,7 +19,7 @@ export const projects = [
     title: 'React component template',
     description:
       'An extension created for vscode which helps you to create opinionated react components with styling (css-in-jsx), test and types file included.',
-    note: 'This helped my quickly develop and build projects in one of my company.',
+    note: 'This increased the productivity of my team as we no longer need to create 4-5 files for a component manually :)',
     dayTime: 'Jan, 2022',
     repoLink: 'https://github.com/PulkitBanta/react-component-generator-vscode',
   },

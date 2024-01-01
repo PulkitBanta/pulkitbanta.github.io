@@ -53,7 +53,7 @@
 .animate-typing span::after {
   content: '';
   animation: 4s steps(18) infinite type;
-  @apply absolute top-0 z-10 block h-full w-full rounded-lg rounded-t-none rounded-bl-none border-l-4 border-white/50 bg-indigo-800;
+  @apply absolute top-0 z-10 block h-full w-full rounded-lg rounded-t-none rounded-bl-none border-l-4 border-white/50 bg-teal-700;
 }
 
 @keyframes scroll {
@@ -103,4 +103,43 @@
   to {
     transform: rotate(0deg);
   }
+}
+
+/* timeline styling */
+.timeline .card .title {
+  @apply relative text-2xl font-medium text-white sm:text-3xl;
+  @apply before:absolute before:-left-[38px] before:top-2 before:h-4 before:w-4 before:rounded-full before:border-4 before:border-teal-700 before:bg-white sm:before:-left-[5.4rem];
+  @apply after:absolute after:-left-[5.8rem] after:hidden after:h-8 after:w-8 after:bg-teal-500 after:blur-xl after:sm:inline;
+}
+
+.timeline .card {
+  @apply relative p-8 sm:p-20;
+  @apply odd:pr-0;
+  @apply even:pl-0;
+  @apply before:absolute before:w-1/2 before:border-teal-700;
+}
+
+.timeline .card:nth-child(odd)::before {
+  @apply -bottom-1 -top-1 left-0 rounded-l-[40px] border-4 border-r-0;
+}
+
+.timeline .card:nth-child(even)::before {
+  @apply bottom-0 right-0 top-0 rounded-r-[40px] border-4 border-l-0;
+}
+
+.timeline .card:first-child::before {
+  @apply rounded-t-none border-t-0;
+}
+
+.timeline .card:last-child::before {
+  @apply rounded-b-none border-b-0;
+}
+
+.timeline .card:nth-child(even) {
+  @apply text-right;
+}
+
+.timeline .card:nth-child(even) .title {
+  @apply before:-right-[38px] before:left-auto sm:before:-right-[5.4rem];
+  @apply after:-right-[5.8rem] after:left-auto;
 }
