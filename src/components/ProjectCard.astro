@@ -23,7 +23,7 @@ const { title, description, note, repoLink, dayTime } = Astro.props;
   </div>
   <strong class="ml-4 mt-4 text-sm">PS: {note}</strong>
   <div class="flex items-center justify-between">
-    <Button small target="_blank" href={repoLink} classname="text-slate-700">
+    <Button small target="_blank" href={repoLink} classname="text-slate-700 !px-0">
       <GithubMarkIcon height={24} width={24} />
     </Button>
     <strong>{dayTime}</strong>
