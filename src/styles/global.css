@@ -115,7 +115,7 @@
 .timeline .card {
   @apply relative p-8 sm:p-20;
   @apply odd:pr-0;
-  @apply even:pl-0;
+  @apply even:pl-5 sm:even:pl-20;
   @apply before:absolute before:w-1/2 before:border-teal-700;
 }
 
@@ -135,7 +135,8 @@
   @apply rounded-b-none border-b-0;
 }
 
-.timeline .card:nth-child(even) {
+.timeline .card:nth-child(even) .title,
+.timeline .card:nth-child(even) .subtitle {
   @apply text-right;
 }
 
