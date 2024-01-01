@@ -1,48 +1,15 @@
 @tailwind base;
 
-@font-face {
-  font-family: 'Poppins';
-  src: url('/fonts/Poppins-Medium.tff') format('tff');
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Poppins';
-  src: url('/fonts/Poppins-Bold.tff') format('tff');
-  font-weight: bold;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Poppins';
-  src: url('/fonts/Poppins-SemiBold.tff') format('tff');
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Poppins';
-  src: url('/fonts/Poppins-Regular.tff') format('tff');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
 @layer base {
   html {
-    font-family: 'Poppins';
+    font-family: 'Poppins', Verdana, Geneva, Tahoma, sans-serif;
     @apply text-slate-800;
   }
   p {
     @apply text-lg font-medium leading-normal md:text-xl;
   }
-}
-
-.animate-typing {
 }
 
 .animate-typing span {
