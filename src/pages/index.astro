@@ -1,0 +1,60 @@
+---
+import Button from '../components/Button.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import SiteMeta from '../components/SiteMeta.astro';
+import WorkCardList from '../components/WorkCardList.astro';
+import GithubMarkIcon from '../components/icons/Github-mark-icon.astro';
+import LaptopIcon from '../components/icons/Laptop-icon.astro';
+import LinkedInIcon from '../components/icons/LinkedIn-icon.astro';
+import { projects } from '../data/projects';
+import '../styles/global.css';
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <SiteMeta />
+  </head>
+  <body class="overflow-x-clip">
+    <section
+      class="flex flex-col flex-wrap justify-center gap-20 overflow-hidden bg-slate-800 px-6 py-20 sm:px-20 sm:py-32 md:skew-y-2 md:scale-110 md:flex-row lg:gap-32 lg:py-52 xl:px-40"
+    >
+      <LaptopIcon class="w-full max-w-lg md:-skew-y-2" />
+      <div class="flex flex-col justify-center bg-slate-800 md:-skew-y-2">
+        <h1 class="text-left text-5xl font-bold leading-normal text-white sm:text-7xl">
+          Hi <span class="animate-wave inline-block">👋</span>, I'm
+          <div class="animate-typing mt-2 h-16 w-fit overflow-hidden rounded-lg bg-teal-700 px-2 sm:h-[72px]">
+            <span>Pulkit Banta</span>
+            <span>a developer</span>
+            <span>an enthusiast</span>
+            <span>a programmer</span>
+          </div>
+        </h1>
+        <p class="mb-3 mt-8 text-white sm:mt-12">Connect with me :)</p>
+        <div class="flex flex-wrap gap-6 sm:flex-nowrap">
+          <Button primary target="_blank" href="https://www.github.com/pulkitbanta">
+            <GithubMarkIcon height={28} width={28} /> GitHub
+          </Button>
+          <Button href="https://www.linkedin.com/in/pulkitbanta" target="_blank">
+            <LinkedInIcon height={28} width={28} /> LinkedIn
+          </Button>
+        </div>
+      </div>
+    </section>
+    <section class="my-12 px-6 sm:px-20 md:my-40 lg:px-40">
+      <h2 class="text-center text-4xl font-bold leading-normal sm:text-6xl">{'< Projects />'}</h2>
+      <p class="mt-3 text-center text-2xl font-normal">Tools and apps created by me for learning and having fun :)</p>
+      <div class="mx-auto flex max-w-6xl flex-wrap justify-center gap-8 py-12 md:py-20">
+        {projects.map((project) => <ProjectCard {...project} />)}
+      </div>
+    </section>
+    <section class="bg-slate-800 px-6 py-20 text-white sm:px-20 lg:pt-32 xl:px-40">
+      <h2 class="text-center text-4xl font-bold leading-normal sm:text-6xl">
+        {'<'}<wbr /> Work Experience 👷‍♂️ {'/>'}
+      </h2>
+      <WorkCardList />
+    </section>
+  </body>
+</html>

@@ -1,0 +1,27 @@
+---
+import { workExperience } from '../data/workExperience';
+import '../styles/global.css';
+---
+
+<!-- CSS is part of global.css -->
+<div class="timeline relative mx-auto my-16 max-w-5xl sm:my-32">
+  <div>
+    {
+      workExperience.map((exp) => (
+        <div class="card">
+          <h3 class="title">{exp.company}</h3>
+          <div class="subtitle mt-1 block">
+            <small class="block opacity-75">{exp.timeWithDuration}</small>
+            <small class="block">{exp.role}</small>
+          </div>
+          <p class="my-5 text-lg font-normal">{exp.shortDescription}</p>
+          <ul class="ml-4 list-disc opacity-70">
+            {exp.list.map((listItem) => (
+              <li class="text-base">{listItem}</li>
+            ))}
+          </ul>
+        </div>
+      ))
+    }
+  </div>
+</div>

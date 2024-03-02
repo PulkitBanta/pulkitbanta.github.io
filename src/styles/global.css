@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+
+@layer base {
+  html {
+    font-family: 'Poppins', Verdana, Geneva, Tahoma, sans-serif;
+    @apply text-slate-800;
+  }
+  p {
+    @apply text-lg font-medium leading-normal md:text-xl;
+  }
+}
+
+.animate-typing span {
+  @apply relative block w-fit overflow-hidden;
+  animation: 16s steps(4) infinite scroll;
+}
+
+.animate-typing span::after {
+  content: '';
+  animation: 4s steps(18) infinite type;
+  @apply absolute top-0 z-10 block h-full w-full rounded-lg rounded-t-none rounded-bl-none border-l-4 border-white/50 bg-teal-700;
+}
+
+@keyframes scroll {
+  from {
+    transform: translateY(0%);
+  }
+  to {
+    transform: translateY(-400%);
+  }
+}
+
+@keyframes type {
+  from {
+    @apply left-0;
+  }
+  60% {
+    @apply left-full h-full border-white;
+  }
+  70% {
+    @apply left-full h-4 border-white;
+  }
+  75% {
+    @apply left-full h-full border-white;
+  }
+  to {
+    @apply left-0;
+  }
+}
+
+.animate-wave {
+  animation: wave 2.1s 0.6s infinite;
+}
+
+@keyframes wave {
+  20% {
+    transform: rotate(16deg);
+  }
+  40% {
+    transform: rotate(-8deg);
+  }
+  60% {
+    transform: rotate(16deg);
+  }
+  80% {
+    transform: rotate(-4deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+/* timeline styling */
+.timeline .card .title {
+  @apply relative text-2xl font-medium text-white sm:text-3xl;
+  @apply before:absolute before:-left-[38px] before:top-2 before:h-4 before:w-4 before:rounded-full before:border-4 before:border-teal-700 before:bg-white sm:before:-left-[5.4rem];
+  @apply after:absolute after:-left-[5.8rem] after:hidden after:h-8 after:w-8 after:bg-teal-500 after:blur-xl after:sm:inline;
+}
+
+.timeline .card {
+  @apply relative p-8 sm:p-20;
+  @apply odd:pr-0;
+  @apply even:pl-5 sm:even:pl-20;
+  @apply before:absolute before:w-1/2 before:border-teal-700;
+}
+
+.timeline .card:nth-child(odd)::before {
+  @apply -bottom-1 -top-1 left-0 rounded-l-[40px] border-4 border-r-0;
+}
+
+.timeline .card:nth-child(even)::before {
+  @apply bottom-0 right-0 top-0 rounded-r-[40px] border-4 border-l-0;
+}
+
+.timeline .card:first-child::before {
+  @apply rounded-t-none border-t-0;
+}
+
+.timeline .card:last-child::before {
+  @apply rounded-b-none border-b-0;
+}
+
+.timeline .card:nth-child(even) .title,
+.timeline .card:nth-child(even) .subtitle {
+  @apply text-right;
+}
+
+.timeline .card:nth-child(even) .title {
+  @apply before:-right-[38px] before:left-auto sm:before:-right-[5.4rem];
+  @apply after:-right-[5.8rem] after:left-auto;
+}
