@@ -1,10 +1,17 @@
 export const workExperience = [
   {
     company: 'FunnelStory',
-    shortDescription: 'Building UI for FunnelStory, go check out the website at https://funnelstory.ai',
-    list: ['Implementing <Cool /> features to help you understand your customers easily 😉'],
+    shortDescription:
+      'Building FunnelStory a customer success platform with AI intelligence to help your CSM team at every step.',
+    list: [
+      'Implemented RBAC, Auth, Onboarding flows on the frontend side ensuring smooth UX for different roles and proper fallback.',
+      'Implemented Renari streaming UI improving the chatbot UX with citations for answer sources.',
+      'Implemented several connectors to applications like Zendesk, ZohoDesk, HubSpot, Postmark, etc. combining all data in a central place.',
+      'Implemented SSO capability for organization to connect Okta, Google workspace for easy login to the platform.',
+      `Created marketing website using product's design system, responsiveness and integrating CRM for blogs and events.`,
+    ],
     timeWithDuration: 'Oct, 2022 - Present',
-    role: 'Front-end Developer',
+    role: 'Senior FullStack Developer',
   },
   {
     company: 'Medly',
