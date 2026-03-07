@@ -24,11 +24,11 @@ export const projects = [
     repoLink: 'https://github.com/PulkitBanta/react-component-generator-vscode',
   },
   {
-    title: 'Fast weather',
+    title: 'Mausam Vibhaag',
     description:
-      'A simple webapp for checking the weather in your area, input your city name and get the weather result in seconds.',
-    note: 'This was my first project with React.',
+      'सबसे अच्छा मौसम पूर्वानुमान प्राप्त करें (Get the best weather forecast). A weather app with hourly forecasts.',
+    note: 'This was my first TypeScript project.',
     dayTime: 'Jan, 2021',
-    repoLink: 'https://github.com/PulkitBanta/fast-weather',
+    repoLink: 'https://github.com/PulkitBanta/Mausam-Vibhaag',
   },
 ];
