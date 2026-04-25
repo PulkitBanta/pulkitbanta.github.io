@@ -1,6 +1,4 @@
 ---
-import Button from './Button.astro';
-import GithubMarkIcon from './icons/Github-mark-icon.astro';
 interface Props {
   note: string;
   title: string;
@@ -16,16 +14,17 @@ const { title, description, note, repoLink, dayTime } = Astro.props;
   class="flex max-w-lg flex-col justify-between rounded-lg border-2 border-slate-500 px-8 pb-4 pt-8 text-slate-700 shadow-lg drop-shadow-xl"
 >
   <div>
-    <h3 class="text-2xl font-medium text-slate-800">{title}</h3>
-    <p class="mt-8 text-lg">
+    <a
+      href={repoLink}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="text-2xl font-medium text-slate-800 hover:text-teal-700 hover:underline">{title}</a
+    >
+    <p class="my-4 text-lg">
       {description}
     </p>
   </div>
-  <p class="ml-4 mt-4 text-sm font-semibold opacity-80">PS: {note}</p>
   <div class="flex items-center justify-between">
-    <Button small target="_blank" href={repoLink} classname="text-slate-700 !px-0">
-      <GithubMarkIcon height={24} width={24} />
-    </Button>
     <strong>{dayTime}</strong>
   </div>
 </div>
