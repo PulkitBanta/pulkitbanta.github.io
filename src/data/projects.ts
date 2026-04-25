@@ -1,5 +1,13 @@
 export const projects = [
   {
+    title: 'Connectio',
+    description:
+      'A local proxy manager — connect and route HTTP requests between your local servers from a single dashboard. Create proxy apps, define wildcard route rules, and see real-time request logs.',
+    note: 'Cross-platform Electron app with Express proxy.',
+    dayTime: 'April, 2026',
+    repoLink: 'https://github.com/PulkitBanta/connectio',
+  },
+  {
     title: 'ReNews',
     description:
       'ReNews is built on top of Hacker news which fetches top 30 news for the day. By easily marking a news as favorite you can come back to it later.',
@@ -22,13 +30,5 @@ export const projects = [
     note: 'This was created as a side project in my first org for helping with boilerplate.',
     dayTime: 'Jan, 2022',
     repoLink: 'https://github.com/PulkitBanta/react-component-generator-vscode',
-  },
-  {
-    title: 'Mausam Vibhaag',
-    description:
-      'सबसे अच्छा मौसम पूर्वानुमान प्राप्त करें (Get the best weather forecast). A weather app with hourly forecasts.',
-    note: 'This was my first TypeScript project.',
-    dayTime: 'Jan, 2021',
-    repoLink: 'https://github.com/PulkitBanta/Mausam-Vibhaag',
   },
 ];

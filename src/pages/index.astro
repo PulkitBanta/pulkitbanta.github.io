@@ -19,23 +19,20 @@ import '../styles/global.css';
   </head>
   <body class="overflow-x-clip">
     <section
-      class="flex flex-col flex-wrap justify-center gap-20 overflow-hidden bg-slate-800 px-6 py-20 sm:px-20 sm:py-32 md:skew-y-2 md:scale-110 md:flex-row lg:gap-32 lg:py-52 xl:px-40"
+      class="flex flex-col flex-wrap justify-center gap-20 overflow-hidden bg-slate-800 px-6 py-20 sm:px-20 sm:py-32 md:flex-row lg:gap-32 lg:py-52 xl:px-40"
     >
-      <LaptopIcon class="w-full max-w-lg md:-skew-y-2" />
-      <div class="flex flex-col justify-center bg-slate-800 md:-skew-y-2">
+      <LaptopIcon class="w-full max-w-lg" />
+      <div class="flex flex-col justify-center">
         <h1 class="text-left text-5xl font-bold leading-normal text-white sm:text-7xl">
-          Hi <span class="animate-wave inline-block">👋</span>, I'm
-          <div
-            class="animate-typing mt-2 h-16 w-fit overflow-hidden whitespace-nowrap rounded-lg bg-teal-700 px-2 sm:h-[72px]"
-          >
-            <span>Pulkit Banta</span>
-            <span>a developer</span>
-            <span>an enthusiast</span>
-            <span>a programmer</span>
-          </div>
+          Hi <span class="animate-wave inline-block">👋</span>, I'm Pulkit Banta
         </h1>
-        <p class="mb-3 mt-8 font-normal text-white sm:mt-12">Want to build or discuss something?</p>
-        <div class="flex flex-wrap gap-6 sm:flex-nowrap">
+        <p class="text-xl font-semibold text-teal-400 sm:mt-2">Senior Software Engineer — Full Stack</p>
+        <p class="mb-3 mt-4 max-w-xl text-base font-normal text-slate-300 sm:mt-6">
+          Building AI-powered products with React, TypeScript, and Golang. Focused on LLM integrations, MCP servers,
+          scalable architecture, and team leadership.
+        </p>
+        <p class="text-sm text-slate-400">pulkitbanta01@gmail.com</p>
+        <div class="mt-6 flex flex-wrap gap-6 sm:flex-nowrap">
           <Button primary target="_blank" href="https://www.github.com/pulkitbanta">
             <GithubMarkIcon height={28} width={28} /> GitHub
           </Button>
@@ -45,19 +42,23 @@ import '../styles/global.css';
         </div>
       </div>
     </section>
-    <section class="my-12 px-6 sm:px-20 md:my-40 lg:px-40">
-      <h2 class="text-center text-4xl font-bold leading-normal sm:text-6xl">{'< Projects />'}</h2>
-      <p class="mt-3 text-center text-2xl font-normal">Tools and apps created by me for learning and having fun :)</p>
-      <div class="mx-auto flex max-w-6xl flex-wrap justify-center gap-8 py-12 md:py-20">
-        {projects.map((project) => <ProjectCard {...project} />)}
+    <section class="my-12 px-6 sm:px-20 md:my-40">
+      <div class="mx-auto max-w-[1080px]">
+        <h2 class="text-center text-4xl font-bold leading-normal sm:text-6xl">{'< Projects />'}</h2>
+        <p class="mt-3 text-center text-2xl font-normal">Tools and apps created by me for learning and having fun :)</p>
+        <div class="mx-auto flex max-w-6xl flex-wrap justify-center gap-8 py-12 md:py-20">
+          {projects.map((project) => <ProjectCard {...project} />)}
+        </div>
       </div>
     </section>
-    <section class="bg-slate-800 px-6 py-20 text-white sm:px-20 lg:pt-32 xl:px-40">
-      <h2 class="text-center text-4xl font-bold leading-normal sm:text-6xl">
-        {'<'}<wbr /> Work Experience 👷‍♂️ {'/>'}
-      </h2>
-      <WorkCardList />
-      <p class="mx-auto w-fit py-2 text-sm font-semibold">Made with ❤️ by Pulkit Banta</p>
+    <section class="bg-slate-800 px-6 py-20 text-white sm:px-20 lg:pt-32">
+      <div class="mx-auto max-w-[1080px]">
+        <h2 class="text-center text-4xl font-bold leading-normal sm:text-6xl">
+          {'<'}<wbr /> Work Experience 👷‍♂️ {'/>'}
+        </h2>
+        <WorkCardList />
+        <p class="mx-auto w-fit py-2 text-sm font-semibold">Made with ❤️ by Pulkit Banta</p>
+      </div>
     </section>
   </body>
 </html>

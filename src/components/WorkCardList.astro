@@ -3,25 +3,29 @@ import { workExperience } from '../data/workExperience';
 import '../styles/global.css';
 ---
 
-<!-- CSS is part of global.css -->
 <div class="timeline relative mx-auto my-16 max-w-5xl sm:my-32">
-  <div>
-    {
-      workExperience.map((exp) => (
-        <div class="card">
-          <h3 class="title">{exp.company}</h3>
-          <div class="subtitle mt-1 block">
-            <small class="block opacity-75">{exp.timeWithDuration}</small>
-            <small class="block">{exp.role}</small>
+  {
+    workExperience.map((exp, index) => {
+      const prevExp = index > 0 ? workExperience[index - 1] : null;
+      const isNewCompany = !prevExp || prevExp.company !== exp.company;
+      const isCurrent = index === 0;
+      const cardClass = `card${isCurrent ? ' current' : ''}${isNewCompany && !isCurrent ? ' new-company' : ''}`;
+      
+      return (
+        <div class={cardClass}>
+          <h3 class="company">{exp.company}</h3>
+          <h4 class="title">{exp.role}</h4>
+          <div class="subtitle">
+            <span class="text-teal-400">{exp.timeWithDuration}</span>
           </div>
-          <p class="my-5 text-lg font-normal">{exp.shortDescription}</p>
-          <ul class="ml-4 list-disc opacity-70">
+          <p class="shortDescription">{exp.shortDescription}</p>
+          <ul>
             {exp.list.map((listItem) => (
-              <li class="text-base">{listItem}</li>
+              <li>{listItem}</li>
             ))}
           </ul>
         </div>
-      ))
-    }
-  </div>
+      );
+    })
+  }
 </div>

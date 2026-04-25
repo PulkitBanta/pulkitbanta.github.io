@@ -73,41 +73,55 @@
 }
 
 /* timeline styling */
-.timeline .card .title {
-  @apply relative text-2xl font-medium text-white sm:text-3xl;
-  @apply before:absolute before:-left-[38px] before:top-2 before:h-4 before:w-4 before:rounded-full before:border-4 before:border-teal-700 before:bg-white sm:before:-left-[5.4rem];
-  @apply after:absolute after:-left-[5.8rem] after:hidden after:h-8 after:w-8 after:bg-teal-500 after:blur-xl after:sm:inline;
+.timeline {
+  @apply relative ml-4 border-l-2 border-dotted border-slate-600 pl-8 sm:ml-8;
 }
 
 .timeline .card {
-  @apply relative p-8 sm:p-20;
-  @apply odd:pr-0;
-  @apply even:pl-5 sm:even:pl-20;
-  @apply before:absolute before:w-1/2 before:border-teal-700;
+  @apply relative mb-8 last:mb-0;
+  @apply before:absolute before:-left-[39px] before:top-3 before:block before:size-3 before:rounded-full before:border-2 before:border-teal-500 before:bg-slate-800;
+  @apply after:absolute;
 }
 
-.timeline .card:nth-child(odd)::before {
-  @apply -bottom-1 -top-1 left-0 rounded-l-[40px] border-4 border-r-0;
+.timeline .card:first-of-type::before {
+  @apply top-2 z-[2] bg-teal-300;
+  animation: blink-dot 2s ease-in-out infinite;
 }
 
-.timeline .card:nth-child(even)::before {
-  @apply bottom-0 right-0 top-0 rounded-r-[40px] border-4 border-l-0;
+.timeline .card:first-of-type::after {
+  @apply absolute -left-[39px] top-0 block size-3 bg-slate-800;
 }
 
-.timeline .card:first-child::before {
-  @apply rounded-t-none border-t-0;
+.timeline .card:last-of-type::after {
+  @apply absolute -bottom-6 -left-[39px] block size-3 h-full bg-slate-800;
 }
 
-.timeline .card:last-child::before {
-  @apply rounded-b-none border-b-0;
+@keyframes blink-dot {
+  0%,
+  100% {
+    @apply opacity-100;
+  }
+  50% {
+    @apply opacity-40;
+  }
 }
 
-.timeline .card:nth-child(even) .title,
-.timeline .card:nth-child(even) .subtitle {
-  @apply text-right;
+.timeline .card .company {
+  @apply text-xl font-semibold text-white;
 }
 
-.timeline .card:nth-child(even) .title {
-  @apply before:-right-[38px] before:left-auto sm:before:-right-[5.4rem];
-  @apply after:-right-[5.8rem] after:left-auto;
+.timeline .card .title {
+  @apply text-lg font-medium text-slate-300;
+}
+
+.timeline .card .subtitle {
+  @apply text-sm text-slate-400;
+}
+
+.timeline .card .shortDescription {
+  @apply mt-2 text-base text-slate-300;
+}
+
+.timeline .card ul {
+  @apply mt-2 list-disc pl-4 text-sm text-slate-400;
 }
