@@ -1,9 +1,9 @@
 ### About me
 
-Hey, I'm Pulkit Banta. I am a frontend developer currently working at [@funnelstory](https://funnelstory.ai/).
+Hey, I'm Pulkit Banta. I'm a **Senior Software Engineer — Full Stack** currently working at [FunnelStory](https://funnelstory.ai/).
 
-I started my developer career back at Jan 2021 and since then I have been building product & website UI. I have also played with Android development and some backend (Java mainly).
+I specialize in building AI-powered products with React, TypeScript, and Golang. My focus is on LLM integrations, MCP servers, scalable architecture, and team leadership.
 
 ### Contact
 
-If you would like to discuss something or reach out. Feel free to connect with me over [LinkedIn](https://linkedin.com/in/pulkitbanta) and [GitHub](https://github.com/pulkitbanta)
+Feel free to connect with me over [LinkedIn](https://linkedin.com/in/pulkitbanta) and [GitHub](https://github.com/pulkitbanta)
