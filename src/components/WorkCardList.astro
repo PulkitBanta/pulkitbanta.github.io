@@ -10,7 +10,7 @@ import '../styles/global.css';
       const isNewCompany = !prevExp || prevExp.company !== exp.company;
       const isCurrent = index === 0;
       const cardClass = `card${isCurrent ? ' current' : ''}${isNewCompany && !isCurrent ? ' new-company' : ''}`;
-      
+
       return (
         <div class={cardClass}>
           <h3 class="company">{exp.company}</h3>

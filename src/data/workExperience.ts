@@ -17,8 +17,7 @@ export const workExperience = [
   },
   {
     company: 'FunnelStory',
-    shortDescription:
-      'Full stack development with React, TypeScript, Golang, and third-party integrations.',
+    shortDescription: 'Full stack development with React, TypeScript, Golang, and third-party integrations.',
     list: [
       'Reduced onboarding time from hours to <30 mins with sample data model.',
       'Developed ChatGPT-like streaming responses using ReadableStream.',
@@ -33,8 +32,7 @@ export const workExperience = [
   },
   {
     company: 'Medly',
-    shortDescription:
-      'Healthcare platform using React/TypeScript with TDD and open-source contributions.',
+    shortDescription: 'Healthcare platform using React/TypeScript with TDD and open-source contributions.',
     list: [
       'Designed and built Khora healthcare platform using React/TypeScript.',
       'Introduced unit testing (TDD) reducing production bugs by 60%.',
@@ -46,11 +44,8 @@ export const workExperience = [
   },
   {
     company: 'Acquest Solutions',
-    shortDescription:
-      'Angular assessment platform with business logic for test timers.',
-    list: [
-      'Built Angular assessment platform with business logic for test timers and window change detection.',
-    ],
+    shortDescription: 'Angular assessment platform with business logic for test timers.',
+    list: ['Built Angular assessment platform with business logic for test timers and window change detection.'],
     timeWithDuration: 'Jan 2021 - Mar 2021',
     role: 'Frontend Engineer',
   },
