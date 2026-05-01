@@ -1,11 +1,11 @@
 ---
-import Button from '../components/Button.astro';
 import ProjectCard from '../components/ProjectCard.astro';
 import SiteMeta from '../components/SiteMeta.astro';
 import WorkCardList from '../components/WorkCardList.astro';
 import GithubMarkIcon from '../components/icons/Github-mark-icon.astro';
 import LaptopIcon from '../components/icons/Laptop-icon.astro';
 import LinkedInIcon from '../components/icons/LinkedIn-icon.astro';
+import EmailIcon from '../components/icons/Email-icon.astro';
 import { projects } from '../data/projects';
 import '../styles/global.css';
 ---
@@ -31,14 +31,28 @@ import '../styles/global.css';
           Building AI-powered products with React, TypeScript, and Golang. Focused on LLM integrations, MCP servers,
           scalable architecture, and team leadership.
         </p>
-        <p class="text-sm text-slate-400">pulkitbanta01@gmail.com</p>
-        <div class="mt-6 flex flex-wrap gap-6 sm:flex-nowrap">
-          <Button primary target="_blank" href="https://www.github.com/pulkitbanta">
-            <GithubMarkIcon height={28} width={28} /> GitHub
-          </Button>
-          <Button href="https://www.linkedin.com/in/pulkitbanta" target="_blank">
-            <LinkedInIcon height={28} width={28} /> LinkedIn
-          </Button>
+        <a
+          href="mailto:pulkitbanta01@gmail.com"
+          target="_blank"
+          class="mt-4 inline-flex items-center gap-2 text-lg font-semibold text-teal-400 hover:text-teal-300"
+        >
+          <EmailIcon height={24} width={24} /> pulkitbanta01@gmail.com
+        </a>
+        <div class="mt-6 flex gap-4">
+          <a
+            target="_blank"
+            href="https://www.github.com/pulkitbanta"
+            class="text-slate-200 transition-colors hover:text-white"
+          >
+            <GithubMarkIcon height={28} width={28} />
+          </a>
+          <a
+            href="https://www.linkedin.com/in/pulkitbanta"
+            target="_blank"
+            class="text-slate-200 transition-colors hover:text-white"
+          >
+            <LinkedInIcon height={28} width={28} />
+          </a>
         </div>
       </div>
     </section>
