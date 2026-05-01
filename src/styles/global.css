@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
-@import "tailwindcss";
+@import 'tailwindcss';
 
 @theme {
   --font-sans: 'Poppins', Verdana, Geneva, Tahoma, sans-serif;
@@ -8,7 +8,8 @@
 }
 
 @keyframes wave {
-  0%, 100% {
+  0%,
+  100% {
     transform: rotate(10deg);
   }
   20% {
@@ -66,10 +67,10 @@
 @keyframes blink-dot {
   0%,
   100% {
-   opacity: 1;
+    opacity: 1;
   }
   50% {
-   opacity: 0.4;
+    opacity: 0.4;
   }
 }
 
