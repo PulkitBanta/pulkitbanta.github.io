@@ -1,0 +1,48 @@
+---
+import BlogRow from './BlogRow.astro';
+import { getCollection } from 'astro:content';
+
+const blogs = await getCollection('blogs');
+const sortedBlogs = blogs.sort((a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime());
+const isAllBlogsPage = Astro.url.pathname === '/blogs';
+
+const displayBlogs = isAllBlogsPage ? sortedBlogs : sortedBlogs.slice(0, 4);
+const hasMoreBlogs = sortedBlogs.length > 4;
+
+const formatDate = (pubDate: string) => {
+  const date = new Date(pubDate);
+  if (isAllBlogsPage) {
+    return date.toLocaleDateString('en-US', {
+      day: '2-digit',
+      month: 'short',
+      year: 'numeric',
+    });
+  }
+  return date.toLocaleDateString('en-US', {
+    month: 'short',
+    year: 'numeric',
+  });
+};
+---
+
+<div class="mx-auto max-w-4xl py-8">
+  {
+    displayBlogs.map((blog) => (
+      <BlogRow
+        title={blog.data.title}
+        date={formatDate(blog.data.pubDate)}
+        slug={blog.id}
+        transitionName={`blog-${blog.id}`}
+      />
+    ))
+  }
+</div>
+{
+  !isAllBlogsPage && hasMoreBlogs && (
+    <div class="mx-auto max-w-4xl text-right">
+      <a href="/blogs" class="text-lg font-medium text-teal-600 hover:text-teal-700 hover:underline">
+        Show More →
+      </a>
+    </div>
+  )
+}

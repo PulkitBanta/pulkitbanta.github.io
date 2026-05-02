@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
 @import 'tailwindcss';
+@plugin '@tailwindcss/typography';
 
 @theme {
   --font-sans: 'Poppins', Verdana, Geneva, Tahoma, sans-serif;
@@ -36,7 +37,13 @@
     @apply text-slate-800;
   }
   p {
-    @apply text-lg font-medium leading-normal md:text-xl;
+    @apply text-lg font-normal leading-normal md:text-xl;
+  }
+  .prose p {
+    @apply text-base md:text-lg;
+  }
+  .prose code {
+    @apply rounded bg-teal-50 px-1.5 py-0.5 text-sm font-medium !text-teal-700;
   }
 }
 

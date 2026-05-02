@@ -1,9 +1,18 @@
 ---
-const title = 'Pulkit Banta';
-const description =
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title: propTitle, description: propDescription } = Astro.props;
+const defaultTitle = 'Pulkit Banta';
+const defaultDescription =
   "Hi! I'm Pulkit Banta. A web developer who loves building product and marketing websites. In my free time I try grasp some more knowledge not specifically about any topic but rather about life :)";
 const url = 'https://pulkitbanta.github.io';
 const image = '/og-image.png';
+
+const title = propTitle ? `${propTitle}` : defaultTitle;
+const description = propDescription || defaultDescription;
 ---
 
 <title>{title}</title>

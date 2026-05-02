@@ -1,0 +1,60 @@
+---
+import { getCollection, render } from 'astro:content';
+import { ClientRouter } from 'astro:transitions';
+import { slide } from 'astro:transitions';
+import SiteMeta from '../../components/SiteMeta.astro';
+import '../../styles/global.css';
+
+export async function getStaticPaths() {
+  const blogs = await getCollection('blogs');
+  return blogs.map((blog) => ({
+    params: { slug: blog.id },
+    props: { blog },
+  }));
+}
+
+const { blog } = Astro.props;
+const { Content } = await render(blog);
+
+const readTime = Math.ceil((blog?.body || '').split(/\s+/).length / 200);
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <SiteMeta title={blog.data.title} description={blog.data.description} />
+    <ClientRouter />
+  </head>
+  <body class="overflow-x-clip" transition:animate={slide({ duration: '0.2s' })}>
+    <section class="my-12 px-6 sm:px-20 md:my-40">
+      <div class="mx-auto max-w-3xl">
+        <nav class="mb-4 flex gap-4 text-lg font-medium">
+          <a href="/blogs" class="text-teal-600 hover:text-teal-700 hover:underline">← All Blogs</a>
+          <span class="text-slate-300">|</span>
+          <a href="/" class="text-teal-600 hover:text-teal-700 hover:underline">Home</a>
+        </nav>
+        <h1 class="text-4xl font-bold leading-normal text-slate-800 sm:text-5xl" transition:name={`blog-${blog.id}`}>
+          {blog.data.title}
+        </h1>
+        <div class="mt-4 flex items-center gap-4 text-slate-500">
+          <span
+            >{
+              new Date(blog.data.pubDate).toLocaleDateString('en-US', {
+                month: 'long',
+                day: 'numeric',
+                year: 'numeric',
+              })
+            }</span
+          >
+          <span>·</span>
+          <span>{readTime} min read</span>
+        </div>
+        <article class="prose prose-slate mt-12 max-w-none">
+          <Content />
+        </article>
+      </div>
+    </section>
+  </body>
+</html>
