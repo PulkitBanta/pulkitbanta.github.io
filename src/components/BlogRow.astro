@@ -1,0 +1,18 @@
+---
+interface Props {
+  title: string;
+  date: string;
+  slug: string;
+  transitionName?: string;
+}
+
+const { title, date, slug, transitionName } = Astro.props;
+---
+
+<a
+  href={`/blogs/${slug}`}
+  class="flex items-center justify-between border-b border-slate-200 py-4 text-slate-700 transition-colors hover:text-teal-700"
+>
+  <span class="text-lg font-medium" transition:name={transitionName}>{title}</span>
+  <span class="text-sm text-slate-500">{date}</span>
+</a>

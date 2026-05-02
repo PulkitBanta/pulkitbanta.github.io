@@ -1,0 +1,30 @@
+---
+import BlogList from '../components/BlogList.astro';
+import SiteMeta from '../components/SiteMeta.astro';
+import { ClientRouter } from 'astro:transitions';
+import { slide } from 'astro:transitions';
+import '../styles/global.css';
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <SiteMeta title="Blogs - Pulkit Banta" />
+    <ClientRouter />
+  </head>
+  <body class="overflow-x-clip" transition:animate={slide({ duration: '0.2s' })}>
+    <section class="my-12 px-6 sm:px-20 md:my-40">
+      <div class="max-w-270 mx-auto">
+        <nav class="mb-8 flex gap-4 text-lg font-medium">
+          <a href="/" class="text-teal-600 hover:text-teal-700 hover:underline">Home</a>
+        </nav>
+        <h2 class="mb-4 text-center text-4xl font-bold leading-normal sm:text-6xl" transition:name="page-title">
+          {'< Blogs />'}
+        </h2>
+        <BlogList />
+      </div>
+    </section>
+  </body>
+</html>
