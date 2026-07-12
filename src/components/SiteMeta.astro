@@ -2,14 +2,16 @@
 interface Props {
   title?: string;
   description?: string;
+  markdownPath?: string;
 }
 
-const { title: propTitle, description: propDescription } = Astro.props;
+const { title: propTitle, description: propDescription, markdownPath } = Astro.props;
 const defaultTitle = 'Pulkit Banta';
 const defaultDescription =
-  "Hi! I'm Pulkit Banta. A web developer who loves building product and marketing websites. In my free time I try grasp some more knowledge not specifically about any topic but rather about life :)";
-const url = 'https://pulkitbanta.github.io';
-const image = '/og-image.png';
+  'Senior Software Engineer building AI-powered products with Golang, Node.js, React, TypeScript, LLM integrations, and MCP servers.';
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
+const image = new URL('/og-image.png', Astro.site);
+const markdownUrl = markdownPath ? new URL(markdownPath, Astro.site) : null;
 
 const title = propTitle ? `${propTitle}` : defaultTitle;
 const description = propDescription || defaultDescription;
@@ -17,6 +19,8 @@ const description = propDescription || defaultDescription;
 
 <title>{title}</title>
 <meta name="description" content={description} />
+<link rel="canonical" href={canonicalUrl} />
+{markdownUrl && <link rel="alternate" type="text/markdown" href={markdownUrl} title={`${title} in Markdown`} />}
 
 {/* Google meta tags */}
 <meta itemprop="name" content={title} />
@@ -24,7 +28,7 @@ const description = propDescription || defaultDescription;
 <meta itemprop="image" content={image} />
 
 {/* Facebook Meta tags */}
-<meta property="og:url" content={url} />
+<meta property="og:url" content={canonicalUrl} />
 <meta property="og:type" content="website" />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />

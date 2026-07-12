@@ -24,7 +24,7 @@ const readTime = Math.ceil((blog?.body || '').split(/\s+/).length / 200);
     <meta charset="utf-8" />
     <link rel="icon" type="image/png" href="/favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <SiteMeta title={blog.data.title} description={blog.data.description} />
+    <SiteMeta title={blog.data.title} description={blog.data.description} markdownPath={`/blogs/${blog.id}.md`} />
     <ClientRouter />
   </head>
   <body class="overflow-x-clip" transition:animate={slide({ duration: '0.2s' })}>
