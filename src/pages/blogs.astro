@@ -1,6 +1,7 @@
 ---
 import BlogList from '../components/BlogList.astro';
 import SiteMeta from '../components/SiteMeta.astro';
+import GTMNoScript from '../components/GTMNoScript.astro';
 import { ClientRouter } from 'astro:transitions';
 import { slide } from 'astro:transitions';
 import '../styles/global.css';
@@ -15,6 +16,7 @@ import '../styles/global.css';
     <ClientRouter />
   </head>
   <body class="overflow-x-clip" transition:animate={slide({ duration: '0.2s' })}>
+    <GTMNoScript />
     <section class="my-12 px-6 sm:px-20 md:my-40">
       <div class="max-w-270 mx-auto">
         <nav class="mb-8 flex gap-4 text-lg font-medium">

@@ -3,6 +3,7 @@ import { getCollection, render } from 'astro:content';
 import { ClientRouter } from 'astro:transitions';
 import { slide } from 'astro:transitions';
 import SiteMeta from '../../components/SiteMeta.astro';
+import GTMNoScript from '../../components/GTMNoScript.astro';
 import '../../styles/global.css';
 
 export async function getStaticPaths() {
@@ -28,6 +29,7 @@ const readTime = Math.ceil((blog?.body || '').split(/\s+/).length / 200);
     <ClientRouter />
   </head>
   <body class="overflow-x-clip" transition:animate={slide({ duration: '0.2s' })}>
+    <GTMNoScript />
     <section class="my-12 px-6 sm:px-20 md:my-40">
       <div class="mx-auto max-w-3xl">
         <nav class="mb-4 flex gap-4 text-lg font-medium">

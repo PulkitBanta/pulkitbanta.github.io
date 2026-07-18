@@ -2,6 +2,7 @@
 import ProjectCard from '../components/ProjectCard.astro';
 import BlogList from '../components/BlogList.astro';
 import SiteMeta from '../components/SiteMeta.astro';
+import GTMNoScript from '../components/GTMNoScript.astro';
 import WorkCardList from '../components/WorkCardList.astro';
 import GithubMarkIcon from '../components/icons/Github-mark-icon.astro';
 import LaptopIcon from '../components/icons/Laptop-icon.astro';
@@ -22,6 +23,7 @@ import '../styles/global.css';
     <ClientRouter />
   </head>
   <body class="overflow-x-clip" transition:animate={slide({ duration: '0.2s' })}>
+    <GTMNoScript />
     <section
       class="flex flex-col flex-wrap justify-center gap-20 overflow-hidden bg-slate-800 px-6 py-20 sm:px-20 sm:py-32 md:flex-row lg:gap-32 lg:py-52 xl:px-40"
     >
