@@ -24,6 +24,7 @@ export default [
   },
   {
     files: ['**/*.ts', '**/*.tsx', '**/*.js', '**/*.jsx'],
+    ignores: ['workers/**'],
     languageOptions: {
       parser: tsParser,
       parserOptions: {
@@ -31,6 +32,22 @@ export default [
         sourceType: 'module',
       },
       ecmaVersion: 2022,
+    },
+  },
+  {
+    // Cloudflare Worker scripts run in their own runtime (not Node/Astro),
+    // so they get Workers/Web-standard globals instead of the app tsconfig.
+    files: ['workers/**/*.js'],
+    languageOptions: {
+      ecmaVersion: 2022,
+      sourceType: 'module',
+      globals: {
+        fetch: 'readonly',
+        crypto: 'readonly',
+        Response: 'readonly',
+        Request: 'readonly',
+        URL: 'readonly',
+      },
     },
   },
 ];

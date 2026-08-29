@@ -1,0 +1,15 @@
+name = "llm-fetch-tracker"
+main = "index.js"
+compatibility_date = "2025-01-01"
+
+# Optional: deploy straight to a route instead of wiring it up in the
+# dashboard. Replace `zone_name` with your actual zone, then run:
+#   wrangler deploy
+#
+# [[routes]]
+# pattern = "pulkitbanta.com/*"
+# zone_name = "pulkitbanta.com"
+
+# Set secrets via CLI instead of the dashboard if you prefer:
+#   wrangler secret put GA_MEASUREMENT_ID
+#   wrangler secret put GA_API_SECRET
