@@ -12,13 +12,13 @@ export const GET: APIRoute = async () => {
 
   return textResponse(`# Pulkit Banta
 
-> Personal website of Pulkit Banta, a Senior Full Stack Software Engineer building AI-powered products, LLM integrations, MCP servers, and scalable software architecture.
+> Personal website of Pulkit Banta, a Senior Software Engineer building products end to end with TypeScript, Go, Node.js, and React.
 
 This file links to clean Markdown versions of every public page on the website. Prefer these files when reading or citing the site's content.
 
 ## Main pages
 
-- [Homepage](${absoluteUrl('/index.md')}): Biography, contact details, work experience, projects, and recent writing.
+- [Homepage](${absoluteUrl('/index.md')}): About Pulkit, contact details, recent blogs, and projects.
 - [Blog index](${absoluteUrl('/blogs.md')}): Complete list of articles about software engineering and AI.
 
 ## Blog posts

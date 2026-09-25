@@ -28,35 +28,46 @@ const readTime = Math.ceil((blog?.body || '').split(/\s+/).length / 200);
     <SiteMeta title={blog.data.title} description={blog.data.description} markdownPath={`/blogs/${blog.id}.md`} />
     <ClientRouter />
   </head>
-  <body class="overflow-x-clip" transition:animate={slide({ duration: '0.2s' })}>
+  <body class="bg-paper overflow-x-clip text-stone-700" transition:animate={slide({ duration: '0.2s' })}>
     <GTMNoScript />
-    <section class="my-12 px-6 sm:px-20 md:my-40">
-      <div class="mx-auto max-w-3xl">
-        <nav class="mb-4 flex gap-4 text-lg font-medium">
-          <a href="/blogs" class="text-teal-600 hover:text-teal-700 hover:underline">← All Blogs</a>
-          <span class="text-slate-300">|</span>
-          <a href="/" class="text-teal-600 hover:text-teal-700 hover:underline">Home</a>
-        </nav>
-        <h1 class="text-4xl font-bold leading-normal text-slate-800 sm:text-5xl" transition:name={`blog-${blog.id}`}>
-          {blog.data.title}
-        </h1>
-        <div class="mt-4 flex items-center gap-4 text-slate-500">
-          <span
-            >{
+    <div class="mx-auto max-w-3xl px-6 pb-24 pt-14 lg:pt-16">
+      <nav class="flex gap-6 text-sm font-medium text-stone-900">
+        <a href="/blogs" class="link-wipe">← All blogs</a>
+        <a href="/" class="link-wipe">Pulkit Banta</a>
+      </nav>
+
+      <header class="mt-16">
+        <p class="flex gap-3 text-sm text-stone-500">
+          <span>
+            {
               new Date(blog.data.pubDate).toLocaleDateString('en-US', {
                 month: 'long',
                 day: 'numeric',
                 year: 'numeric',
               })
-            }</span
-          >
+            }
+          </span>
           <span>·</span>
           <span>{readTime} min read</span>
-        </div>
-        <article class="prose prose-slate mt-12 max-w-none">
-          <Content />
-        </article>
-      </div>
-    </section>
+        </p>
+        <h1
+          class="mt-4 text-4xl font-semibold leading-tight tracking-tight text-stone-900 sm:text-5xl"
+          transition:name={`blog-${blog.id}`}
+        >
+          {blog.data.title}
+        </h1>
+      </header>
+
+      <article
+        class="prose prose-stone prose-headings:font-semibold prose-headings:tracking-tight prose-headings:text-stone-900 prose-a:text-teal-700 prose-a:decoration-teal-700/30 prose-a:underline-offset-4 hover:prose-a:decoration-teal-700 prose-code:before:content-none prose-code:after:content-none mt-12 max-w-none"
+      >
+        <Content />
+      </article>
+
+      <footer class="mt-20 flex justify-between text-sm text-stone-400">
+        <span>© Pulkit Banta</span>
+        <a href="/blogs" class="link-wipe text-stone-900">More blogs →</a>
+      </footer>
+    </div>
   </body>
 </html>

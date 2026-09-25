@@ -1,4 +1,6 @@
 ---
+import { Font } from 'astro:assets';
+
 interface Props {
   title?: string;
   description?: string;
@@ -17,6 +19,7 @@ const title = propTitle ? `${propTitle}` : defaultTitle;
 const description = propDescription || defaultDescription;
 ---
 
+<Font cssVariable="--font-instrument-sans" preload />
 <title>{title}</title>
 <meta name="description" content={description} />
 <link rel="canonical" href={canonicalUrl} />

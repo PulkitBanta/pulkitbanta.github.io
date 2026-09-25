@@ -1,0 +1,74 @@
+---
+// PROTOTYPE — hidden "drive through Himachal" easter egg.
+// Triggers: type "drive" anywhere, or click any [data-drive-trigger]. three.js is only loaded on trigger.
+import type { CollectionEntry } from 'astro:content';
+import type { DriveStop } from './scene';
+import { profile } from '../../../data/profile';
+import type { projects as allProjects } from '../../../data/projects';
+
+interface Props {
+  blogs: CollectionEntry<'blogs'>[];
+  projects: typeof allProjects;
+}
+
+const { blogs, projects } = Astro.props;
+const shortDate = (d: string) => new Date(d).toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
+
+const stops: DriveStop[] = [
+  { kind: 'welcome', label: 'Welcome', title: 'Welcome to Himachal', subtitle: 'Drive slow. Enjoy the view.' },
+  { kind: 'about', label: 'About', title: 'Pulkit Banta', subtitle: profile.tagline },
+  ...blogs.map((b) => ({
+    kind: 'blog' as const,
+    label: `Blog · ${shortDate(b.data.pubDate)}`,
+    title: b.data.title,
+    subtitle: b.data.description,
+    href: `/blogs/${b.id}`,
+  })),
+  ...projects.map((p) => ({
+    kind: 'project' as const,
+    label: `Project · ${p.dayTime}`,
+    title: p.title,
+    subtitle: p.description,
+    href: p.repoLink,
+    external: true,
+  })),
+  { kind: 'end', label: 'The end', title: 'Thanks for the ride', subtitle: 'Keep driving to loop, or press Esc.' },
+];
+---
+
+<div id="drive-root" hidden class="fixed inset-0 z-[90] bg-slate-900" data-stops={JSON.stringify(stops)}></div>
+
+<script>
+  const SECRET = 'drive';
+  let buffer = '';
+  let running = false;
+
+  async function start() {
+    const root = document.getElementById('drive-root');
+    if (!root || running) return;
+    running = true;
+    root.hidden = false;
+    document.body.dataset.driving = 'true';
+    document.body.style.overflow = 'hidden';
+
+    const { startDrive } = await import('./scene');
+    startDrive(root, JSON.parse(root.dataset.stops ?? '[]'), () => {
+      root.hidden = true;
+      root.innerHTML = '';
+      delete document.body.dataset.driving;
+      document.body.style.overflow = '';
+      running = false;
+    });
+  }
+
+  document.addEventListener('click', (e) => {
+    if ((e.target as HTMLElement).closest('[data-drive-trigger]')) start();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    const t = e.target as HTMLElement;
+    if (running || t.closest('input, textarea, [contenteditable]') || e.key.length !== 1) return;
+    buffer = (buffer + e.key.toLowerCase()).slice(-SECRET.length);
+    if (buffer === SECRET) start();
+  });
+</script>

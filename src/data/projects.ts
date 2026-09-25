@@ -2,7 +2,7 @@ export const projects = [
   {
     title: 'Connectio',
     description:
-      'A local proxy manager — connect and route HTTP requests between your local servers from a single dashboard. Create proxy apps, define wildcard route rules, and see real-time request logs.',
+      'A local proxy manager to connect and route HTTP requests between your local servers from a single dashboard. Create proxy apps, define wildcard route rules, and see real-time request logs.',
     dayTime: 'April, 2026',
     repoLink: 'https://github.com/PulkitBanta/connectio',
   },

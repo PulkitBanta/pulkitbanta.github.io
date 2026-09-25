@@ -98,7 +98,7 @@ Use a skill when the context is a reusable workflow the user wants to carry acro
 
 Use a resource when the context is authoritative data or instructions owned by the MCP server. Current schemas, workspace-specific terminology, supported filters, and product rules belong here. The resource describes how this system works right now.
 
-Use both when the workflow is stable but the domain context is dynamic. A skill can teach the overall process—inspect, plan, confirm, execute—while resources provide the live platform details for each step.
+Use both when the workflow is stable but the domain context is dynamic. A skill can teach the overall process (inspect, plan, confirm, execute) while resources provide the live platform details for each step.
 
 ## Tradeoffs worth planning for
 

@@ -1,10 +1,17 @@
 ---
-import BlogList from '../components/BlogList.astro';
-import SiteMeta from '../components/SiteMeta.astro';
-import GTMNoScript from '../components/GTMNoScript.astro';
+import { getCollection } from 'astro:content';
 import { ClientRouter } from 'astro:transitions';
 import { slide } from 'astro:transitions';
+import BlogList from '../components/BlogList.astro';
+import Hills from '../components/Hills.astro';
+import Reveal from '../components/Reveal.astro';
+import SiteMeta from '../components/SiteMeta.astro';
+import GTMNoScript from '../components/GTMNoScript.astro';
 import '../styles/global.css';
+
+const blogs = (await getCollection('blogs')).sort(
+  (a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime()
+);
 ---
 
 <html lang="en">
@@ -15,18 +22,27 @@ import '../styles/global.css';
     <SiteMeta title="Blogs - Pulkit Banta" markdownPath="/blogs.md" />
     <ClientRouter />
   </head>
-  <body class="overflow-x-clip" transition:animate={slide({ duration: '0.2s' })}>
+  <body class="bg-paper overflow-x-clip text-stone-700" transition:animate={slide({ duration: '0.2s' })}>
     <GTMNoScript />
-    <section class="my-12 px-6 sm:px-20 md:my-40">
-      <div class="max-w-270 mx-auto">
-        <nav class="mb-8 flex gap-4 text-lg font-medium">
-          <a href="/" class="text-teal-600 hover:text-teal-700 hover:underline">Home</a>
-        </nav>
-        <h2 class="mb-4 text-center text-4xl font-bold leading-normal sm:text-6xl" transition:name="page-title">
-          {'< Blogs />'}
-        </h2>
-        <BlogList />
+    <div class="mx-auto max-w-3xl px-6 pb-24 pt-14 lg:pt-16">
+      <a href="/" class="link-wipe text-sm font-medium text-stone-900">← Pulkit Banta</a>
+
+      <header class="mt-16 flex flex-wrap items-end justify-between gap-8">
+        <div>
+          <h1 class="text-6xl font-semibold tracking-tight text-stone-900" transition:name="page-title">Blogs</h1>
+          <p class="mt-4 max-w-md text-base leading-relaxed text-stone-600">
+            Notes on building products, AI and the things I learn along the way.
+          </p>
+        </div>
+        <Hills class="w-48" />
+      </header>
+
+      <div class="mt-12">
+        <BlogList blogs={blogs} />
       </div>
-    </section>
+
+      <footer class="mt-20 text-sm text-stone-400">© Pulkit Banta</footer>
+    </div>
+    <Reveal />
   </body>
 </html>

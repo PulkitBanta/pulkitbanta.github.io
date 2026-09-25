@@ -1,17 +1,30 @@
 ---
-import ProjectCard from '../components/ProjectCard.astro';
-import BlogList from '../components/BlogList.astro';
-import SiteMeta from '../components/SiteMeta.astro';
-import GTMNoScript from '../components/GTMNoScript.astro';
-import WorkCardList from '../components/WorkCardList.astro';
-import GithubMarkIcon from '../components/icons/Github-mark-icon.astro';
-import LaptopIcon from '../components/icons/Laptop-icon.astro';
-import LinkedInIcon from '../components/icons/LinkedIn-icon.astro';
-import EmailIcon from '../components/icons/Email-icon.astro';
-import { projects } from '../data/projects';
+import { getCollection } from 'astro:content';
 import { ClientRouter } from 'astro:transitions';
 import { slide } from 'astro:transitions';
+import BlogList from '../components/BlogList.astro';
+import Hills from '../components/Hills.astro';
+import Reveal from '../components/Reveal.astro';
+import SiteMeta from '../components/SiteMeta.astro';
+import GTMNoScript from '../components/GTMNoScript.astro';
+import { links, profile } from '../data/profile';
+import { projects } from '../data/projects';
 import '../styles/global.css';
+
+const blogs = (await getCollection('blogs')).sort(
+  (a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime()
+);
+
+const sections = [
+  { id: 'about', label: 'About' },
+  { id: 'blogs', label: 'Blogs' },
+  { id: 'projects', label: 'Projects' },
+];
+
+// PROTOTYPE — the Himachal drive easter egg is dev-only.
+// Imported dynamically behind DEV so production builds drop them (and three.js) entirely.
+const showDrive = import.meta.env.DEV;
+const DriveEasterEgg = showDrive ? (await import('../components/prototype/drive/DriveEasterEgg.astro')).default : null;
 ---
 
 <html lang="en">
@@ -22,77 +35,174 @@ import '../styles/global.css';
     <SiteMeta markdownPath="/index.md" />
     <ClientRouter />
   </head>
-  <body class="overflow-x-clip" transition:animate={slide({ duration: '0.2s' })}>
+  <body class="bg-paper overflow-x-clip text-stone-700" transition:animate={slide({ duration: '0.2s' })}>
     <GTMNoScript />
-    <section
-      class="flex flex-col flex-wrap justify-center gap-20 overflow-hidden bg-slate-800 px-6 py-20 sm:px-20 sm:py-32 md:flex-row lg:gap-32 lg:py-52 xl:px-40"
-    >
-      <LaptopIcon class="w-full max-w-lg" />
-      <div class="flex flex-col justify-center">
-        <h1 class="text-left text-5xl font-bold leading-normal text-white sm:text-7xl">
-          Hi <span class="animate-wave inline-block">👋</span>, I'm Pulkit Banta
-        </h1>
-        <p class="text-xl font-semibold text-teal-400 sm:mt-2">
-          Senior Full Stack Engineer — TypeScript • React • Golang • AWS
-        </p>
-        <p class="mb-3 mt-4 max-w-xl text-base font-normal text-slate-300 sm:mt-6">
-          5+ years building full-stack SaaS products and scalable systems across frontend and backend. Focused on
-          AI-powered products, LLM integrations, MCP servers, and AWS-based cloud infrastructure.
-        </p>
-        <a
-          href="mailto:pulkitbanta01@gmail.com"
-          target="_blank"
-          class="mt-4 inline-flex items-center gap-2 text-lg font-semibold text-teal-400 hover:text-teal-300"
-        >
-          <EmailIcon height={24} width={24} /> pulkitbanta01@gmail.com
-        </a>
-        <div class="mt-6 flex gap-4">
-          <a
-            target="_blank"
-            href="https://www.github.com/pulkitbanta"
-            class="text-slate-200 transition-colors hover:text-white"
-          >
-            <GithubMarkIcon height={28} width={28} />
-          </a>
-          <a
-            href="https://www.linkedin.com/in/pulkitbanta"
-            target="_blank"
-            class="text-slate-200 transition-colors hover:text-white"
-          >
-            <LinkedInIcon height={28} width={28} />
-          </a>
+    <div class="mx-auto grid max-w-6xl gap-16 px-6 lg:grid-cols-[1fr_1.15fr] lg:gap-24">
+      <aside class="flex flex-col pt-14 lg:sticky lg:top-0 lg:h-screen lg:justify-between lg:py-16">
+        <div>
+          <p class="intro text-sm font-medium text-stone-500" style="--i:0">{profile.tagline}</p>
+          <h1 class="intro mt-5 text-6xl font-semibold leading-[1.05] tracking-tight text-stone-900" style="--i:1">
+            Hey, I'm Pulkit.
+          </h1>
+          <p class="intro mt-6 max-w-md text-base leading-relaxed text-stone-600" style="--i:2">
+            I build products end to end: AI agents and evals, UIs and scalable backends. Open to B2B and B2C roles.
+          </p>
+
+          <nav class="intro mt-12 hidden lg:block" style="--i:3" aria-label="Sections">
+            <ul class="space-y-3">
+              {
+                sections.map((s) => (
+                  <li>
+                    <a
+                      href={`#${s.id}`}
+                      data-spy={s.id}
+                      class="spy flex items-center gap-4 py-1 text-sm font-medium uppercase tracking-widest text-stone-400"
+                    >
+                      <span class="spy-line h-px bg-current" />
+                      {s.label}
+                    </a>
+                  </li>
+                ))
+              }
+            </ul>
+          </nav>
         </div>
-      </div>
-    </section>
-    {/* --- Blogs --- */}
-    <section class="my-12 px-6 sm:px-20 md:my-40">
-      <div class="max-w-270 mx-auto">
-        <h2 class="text-center text-4xl font-bold leading-normal sm:text-6xl" transition:name="page-title">
-          {'< Blogs />'}
-        </h2>
-        <p class="mt-3 text-center text-xl font-semibold">Thoughts on software engineering, AI, and more</p>
-        <BlogList />
-      </div>
-    </section>
-    {/* --- Work Experience --- */}
-    <section class="bg-slate-800 px-6 py-20 text-white sm:px-20 lg:pt-32">
-      <div class="max-w-270 mx-auto">
-        <h2 class="text-center text-4xl font-bold leading-normal sm:text-6xl">
-          {'<'}<wbr /> Work Experience 👷‍♂️ {'/>'}
-        </h2>
-        <WorkCardList />
-      </div>
-    </section>
-    {/* --- Projects --- */}
-    <section class="my-12 px-6 sm:px-20 md:my-40">
-      <div class="max-w-270 mx-auto">
-        <h2 class="text-center text-4xl font-bold leading-normal sm:text-6xl">{'< Projects />'}</h2>
-        <p class="mt-3 text-center text-2xl font-normal">Tools and apps created by me for learning and having fun :)</p>
-        <div class="mx-auto flex max-w-6xl flex-wrap justify-center gap-8 py-12 md:py-20">
-          {projects.map((project) => <ProjectCard {...project} />)}
+
+        <div class="mt-12">
+          <Hills class="w-full max-w-sm" />
+          <div class="mt-6 flex gap-6 text-sm font-medium text-stone-900">
+            <a href={links.email} class="link-wipe">Email</a>
+            <a href={links.linkedin} target="_blank" class="link-wipe">LinkedIn</a>
+            <a href={links.github} target="_blank" class="link-wipe">GitHub</a>
+          </div>
         </div>
-        <p class="mx-auto w-fit py-2 text-sm font-semibold text-slate-500">Made with ❤️ by Pulkit Banta</p>
-      </div>
-    </section>
+      </aside>
+
+      <main class="pb-24 lg:py-16">
+        <section id="about" data-section class="scroll-mt-16">
+          <h2 class="text-sm font-medium uppercase tracking-widest text-teal-700 lg:sr-only">About</h2>
+          <p class="intro mt-4 text-base leading-relaxed lg:mt-0" style="--i:2">{profile.intro}</p>
+          <p class="intro mt-6 text-base leading-relaxed" style="--i:3">{profile.interests}</p>
+          <p class="intro mt-6 text-base leading-relaxed" style="--i:4">
+            {profile.hometown}
+            {
+              showDrive && (
+                <button data-drive-trigger class="link-wipe ml-1 font-medium text-teal-700">
+                  Take the scenic route →
+                </button>
+              )
+            }
+          </p>
+          <ul class="intro mt-6 flex flex-wrap gap-2" style="--i:5">
+            {
+              profile.hobbies.map((hobby) => (
+                <li class="rounded-full border border-stone-300 bg-white/50 px-3 py-1 text-sm transition hover:-translate-y-0.5 hover:border-teal-600">
+                  {hobby}
+                </li>
+              ))
+            }
+          </ul>
+        </section>
+
+        <section id="blogs" data-section class="mt-28 scroll-mt-16">
+          <div data-reveal class="flex items-baseline justify-between">
+            <h2 class="text-sm font-medium uppercase tracking-widest text-teal-700" transition:name="page-title">
+              Blogs
+            </h2>
+            <a href="/blogs" class="link-wipe text-sm font-medium text-stone-900">All blogs →</a>
+          </div>
+          <div class="mt-6">
+            <BlogList blogs={blogs.slice(0, 4)} />
+          </div>
+        </section>
+
+        <section id="projects" data-section class="mt-28 scroll-mt-16">
+          <h2 data-reveal class="text-sm font-medium uppercase tracking-widest text-teal-700">Projects</h2>
+          <ul class="mt-6 space-y-3">
+            {
+              projects.map((project, i) => (
+                <li data-reveal style={`--d:${i * 70}ms`}>
+                  <a
+                    href={project.repoLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="group -mx-5 block rounded-2xl p-5 transition duration-300 hover:bg-white hover:shadow-[0_10px_40px_-15px_rgb(68_64_60/0.25)]"
+                  >
+                    <div class="flex items-baseline justify-between gap-4">
+                      <h3 class="text-lg font-semibold text-stone-900">
+                        {project.title}
+                        <span class="inline-block text-stone-400 transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-teal-700">
+                          ↗
+                        </span>
+                      </h3>
+                      <span class="shrink-0 text-sm text-stone-500">{project.dayTime}</span>
+                    </div>
+                    <p class="mt-2 text-base leading-relaxed text-stone-500">{project.description}</p>
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+        </section>
+
+        <footer class="mt-28 text-sm text-stone-400">© Pulkit Banta</footer>
+      </main>
+    </div>
+
+    {DriveEasterEgg && <DriveEasterEgg blogs={blogs} projects={projects} />}
+    <Reveal />
+    <style>
+      /* Above-the-fold entrance is pure CSS with short delays, so it never waits on JS
+         and doesn't hold back Largest Contentful Paint. */
+      .intro {
+        animation: intro-in 0.8s cubic-bezier(0.2, 0.7, 0.2, 1) backwards;
+        animation-delay: calc(var(--i) * 70ms);
+      }
+      @keyframes intro-in {
+        from {
+          opacity: 0;
+          translate: 0 14px;
+        }
+        to {
+          opacity: 1;
+          translate: 0 0;
+        }
+      }
+
+      .spy {
+        transition: color 0.3s;
+      }
+      .spy-line {
+        width: 2rem;
+        transition: width 0.35s cubic-bezier(0.2, 0.7, 0.2, 1);
+      }
+      .spy:hover,
+      .spy[data-active] {
+        color: var(--color-stone-900);
+      }
+      .spy:hover .spy-line,
+      .spy[data-active] .spy-line {
+        width: 4.5rem;
+      }
+    </style>
+
+    <script>
+      // Scroll-spy: highlight the nav entry for the section in the middle of the viewport.
+      function initScrollSpy() {
+        const links = document.querySelectorAll<HTMLElement>('[data-spy]');
+        if (!links.length) return;
+        const io = new IntersectionObserver(
+          (entries) => {
+            for (const entry of entries) {
+              if (!entry.isIntersecting) continue;
+              links.forEach((l) => l.toggleAttribute('data-active', l.dataset.spy === entry.target.id));
+            }
+          },
+          { rootMargin: '-35% 0px -60% 0px' }
+        );
+        document.querySelectorAll('[data-section]').forEach((s) => io.observe(s));
+      }
+      document.addEventListener('astro:page-load', initScrollSpy);
+    </script>
   </body>
 </html>

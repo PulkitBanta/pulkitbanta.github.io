@@ -9,7 +9,7 @@ export const GET: APIRoute = async () => {
   const blogList = blogs
     .map(
       (blog) =>
-        `- [${blog.data.title}](${absoluteUrl(`/blogs/${blog.id}`)}) ([Markdown](${absoluteUrl(`/blogs/${blog.id}.md`)}), ${blog.data.pubDate}) — ${blog.data.description}`
+        `- [${blog.data.title}](${absoluteUrl(`/blogs/${blog.id}`)}) ([Markdown](${absoluteUrl(`/blogs/${blog.id}.md`)}), ${blog.data.pubDate}): ${blog.data.description}`
     )
     .join('\n');
 

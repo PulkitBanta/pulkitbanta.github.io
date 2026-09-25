@@ -1,7 +1,7 @@
 import type { APIRoute } from 'astro';
 import { getCollection } from 'astro:content';
 import { projects } from '../data/projects';
-import { workExperience } from '../data/workExperience';
+import { profile } from '../data/profile';
 import { absoluteUrl, markdownResponse } from '../utils/markdown';
 
 export const GET: APIRoute = async () => {
@@ -12,28 +12,23 @@ export const GET: APIRoute = async () => {
   const blogList = blogs
     .map(
       (blog) =>
-        `- [${blog.data.title}](${absoluteUrl(`/blogs/${blog.id}`)}) (${blog.data.pubDate}) — ${blog.data.description}`
+        `- [${blog.data.title}](${absoluteUrl(`/blogs/${blog.id}`)}) (${blog.data.pubDate}): ${blog.data.description}`
     )
     .join('\n');
 
-  const experience = workExperience
-    .map(
-      (job) =>
-        `### ${job.role} at ${job.company}\n\n${job.timeWithDuration}\n\n${job.shortDescription}\n\n${job.list
-          .map((item) => `- ${item}`)
-          .join('\n')}`
-    )
-    .join('\n\n');
-
   const projectList = projects
-    .map((project) => `- [${project.title}](${project.repoLink}) (${project.dayTime}) — ${project.description}`)
+    .map((project) => `- [${project.title}](${project.repoLink}) (${project.dayTime}): ${project.description}`)
     .join('\n');
 
   return markdownResponse(`# Pulkit Banta
 
-Senior Software Engineer — Full Stack
+${profile.intro}
 
-Building AI-powered products with Golang, Node.js, React, and TypeScript. Focused on LLM integrations, MCP servers, scalable architecture, and team leadership.
+## About
+
+${profile.interests}
+
+${profile.hometown}
 
 ## Contact
 
@@ -46,10 +41,6 @@ Building AI-powered products with Golang, Node.js, React, and TypeScript. Focuse
 ${blogList}
 
 See the [blog index](${absoluteUrl('/blogs')}) for all posts.
-
-## Work experience
-
-${experience}
 
 ## Projects
 

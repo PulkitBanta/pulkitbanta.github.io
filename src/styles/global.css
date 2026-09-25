@@ -1,10 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
-
 @import 'tailwindcss';
 @plugin '@tailwindcss/typography';
 
 @theme {
-  --font-sans: 'Poppins', Verdana, Geneva, Tahoma, sans-serif;
+  --font-sans: var(--font-instrument-sans), ui-sans-serif, system-ui, sans-serif;
+  --color-paper: #f6f3ec;
   --animate-wave: wave 1.5s ease-in-out infinite;
 }
 
@@ -34,7 +33,13 @@
 @layer base {
   html {
     font-family: var(--font-sans);
-    @apply text-slate-800;
+    @apply text-stone-800;
+  }
+  ::selection {
+    @apply bg-teal-800 text-white;
+  }
+  :focus-visible {
+    @apply rounded-sm outline-2 outline-offset-4 outline-teal-700;
   }
   p {
     @apply text-lg font-normal leading-normal md:text-xl;
@@ -43,60 +48,41 @@
     @apply text-base md:text-lg;
   }
   .prose code {
-    @apply rounded bg-teal-50 px-1.5 py-0.5 text-sm font-medium !text-teal-700;
+    @apply rounded bg-stone-200/70 px-1.5 py-0.5 text-sm font-medium !text-stone-800;
   }
 }
 
-/* timeline styling */
-.timeline {
-  @apply relative ml-4 border-l-2 border-dotted border-slate-600 pl-8 sm:ml-8;
+/* Scroll reveal: fade + lift, staggered with --d. Only armed once the Reveal script has run. */
+html[data-motion] [data-reveal] {
+  opacity: 0;
+  translate: 0 18px;
+  transition:
+    opacity 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) var(--d, 0ms),
+    translate 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) var(--d, 0ms);
+}
+html[data-motion] [data-reveal].is-in {
+  opacity: 1;
+  translate: 0 0;
 }
 
-.timeline .card {
-  @apply relative mb-8 last:mb-0;
-  @apply before:-left-9.75 before:absolute before:top-3 before:block before:size-3 before:rounded-full before:border-2 before:border-teal-500 before:bg-slate-800;
-  @apply after:absolute;
+/* Underline that wipes in from the left on hover. */
+.link-wipe {
+  background: linear-gradient(currentColor, currentColor) right bottom / 0 1px no-repeat;
+  padding-bottom: 1px;
+  transition: background-size 0.4s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.link-wipe:hover,
+.group:hover .link-wipe {
+  background-position: left bottom;
+  background-size: 100% 1px;
 }
 
-.timeline .card:first-of-type::before {
-  @apply z-2 top-2 bg-teal-300;
-  animation: blink-dot 2s ease-in-out infinite;
-}
-
-.timeline .card:first-of-type::after {
-  @apply -left-9.75 absolute top-0 block size-3 bg-slate-800;
-}
-
-.timeline .card:last-of-type::after {
-  @apply -left-9.75 absolute -bottom-6 block size-3 h-full bg-slate-800;
-}
-
-@keyframes blink-dot {
-  0%,
-  100% {
-    opacity: 1;
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
-  50% {
-    opacity: 0.4;
-  }
-}
-
-.timeline .card .company {
-  @apply text-xl font-semibold text-white;
-}
-
-.timeline .card .title {
-  @apply text-lg font-medium text-slate-300;
-}
-
-.timeline .card .subtitle {
-  @apply text-sm text-slate-400;
-}
-
-.timeline .card .shortDescription {
-  @apply mt-2 text-base text-slate-300;
-}
-
-.timeline .card ul {
-  @apply mt-2 list-disc pl-4 text-sm text-slate-400;
 }
