@@ -80,8 +80,8 @@ const DriveEasterEgg = showDrive ? (await import('../components/prototype/drive/
 
       <main class="pb-24 lg:py-16">
         <section id="about" data-section class="scroll-mt-16">
-          <h2 class="text-sm font-medium uppercase tracking-widest text-teal-700 lg:sr-only">About</h2>
-          <p class="intro mt-4 text-base leading-relaxed lg:mt-0" style="--i:2">{profile.intro}</p>
+          <h2 class="text-sm font-medium uppercase tracking-widest text-teal-700">About</h2>
+          <p class="intro mt-4 text-base leading-relaxed lg:mt-2" style="--i:2">{profile.intro}</p>
           <p class="intro mt-6 text-base leading-relaxed" style="--i:3">{profile.interests}</p>
           <p class="intro mt-6 text-base leading-relaxed" style="--i:4">
             {profile.hometown}
@@ -112,7 +112,7 @@ const DriveEasterEgg = showDrive ? (await import('../components/prototype/drive/
             <a href="/blogs" class="link-wipe text-sm font-medium text-stone-900">All blogs →</a>
           </div>
           <div class="mt-6">
-            <BlogList blogs={blogs.slice(0, 4)} />
+            <BlogList blogs={blogs.slice(0, 3)} />
           </div>
         </section>
 

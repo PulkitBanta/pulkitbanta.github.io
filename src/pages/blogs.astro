@@ -36,11 +36,9 @@ const blogs = (await getCollection('blogs')).sort(
         </div>
         <Hills class="w-48" />
       </header>
-
       <div class="mt-12">
         <BlogList blogs={blogs} />
       </div>
-
       <footer class="mt-20 text-sm text-stone-400">© Pulkit Banta</footer>
     </div>
     <Reveal />
