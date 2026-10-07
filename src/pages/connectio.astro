@@ -26,7 +26,13 @@ const shots = [home, highlights, home, details, details];
     <meta charset="utf-8" />
     <link rel="icon" type="image/png" href="/images/connectio/icon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <SiteMeta title={`Connectio: ${c.tagline}`} description={c.description} markdownPath="/connectio.md" />
+    <SiteMeta
+      title={`Connectio: ${c.tagline}`}
+      description={c.description}
+      markdownPath="/connectio.md"
+      image={c.ogImage}
+      imageAlt={`${c.name}: ${c.tagline} Route by path, inspect every request, share through a tunnel.`}
+    />
     <ConnectioSchema />
     <ClientRouter />
   </head>

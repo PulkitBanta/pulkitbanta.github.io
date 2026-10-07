@@ -5,17 +5,26 @@ interface Props {
   title?: string;
   description?: string;
   markdownPath?: string;
+  image?: string;
+  imageAlt?: string;
 }
 
-const { title: propTitle, description: propDescription, markdownPath } = Astro.props;
+const {
+  title: propTitle,
+  description: propDescription,
+  markdownPath,
+  image: propImage,
+  imageAlt: propImageAlt,
+} = Astro.props;
 const defaultTitle = 'Pulkit Banta';
 const defaultDescription =
   'Senior Software Engineer building AI-powered products with Golang, Node.js, React, TypeScript, LLM integrations, and MCP servers.';
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
 // Bump when og-image.png changes so social platforms refetch instead of serving their cached copy.
 const imageVersion = '20260928';
-const image = new URL(`/og-image.png?v=${imageVersion}`, Astro.site);
-const imageAlt = "Hey, I'm Pulkit. Senior Software Engineer building AI agents, UIs and scalable backends.";
+const image = new URL(propImage ?? `/og-image.png?v=${imageVersion}`, Astro.site);
+const imageAlt =
+  propImageAlt ?? "Hey, I'm Pulkit. Senior Software Engineer building AI agents, UIs and scalable backends.";
 const markdownUrl = markdownPath ? new URL(markdownPath, Astro.site) : null;
 
 const title = propTitle ? `${propTitle}` : defaultTitle;
@@ -44,11 +53,18 @@ const description = propDescription || defaultDescription;
 <meta property="og:image:alt" content={imageAlt} />
 
 <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-TRJZ326C');</script>
+<script>
+  (function (w, d, s, l, i) {
+    w[l] = w[l] || [];
+    w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+    var f = d.getElementsByTagName(s)[0],
+      j = d.createElement(s),
+      dl = l != 'dataLayer' ? '&l=' + l : '';
+    j.async = true;
+    j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+    f.parentNode.insertBefore(j, f);
+  })(window, document, 'script', 'dataLayer', 'GTM-TRJZ326C');
+</script>
 <!-- End Google Tag Manager -->
 
 {/* twitter Meta tags */}

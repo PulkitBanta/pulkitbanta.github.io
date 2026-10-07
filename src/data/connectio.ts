@@ -18,6 +18,8 @@ export const connectio = {
   repo,
   latest,
   installGuide: `${repo}/blob/main/INSTALL.md`,
+  // Bump ?v= when og.png changes so social platforms refetch it.
+  ogImage: '/images/connectio/og.png?v=20261007',
   video: { src: '/images/connectio/tour.mp4', poster: '/images/connectio/tour-poster.jpg', duration: 'PT1M' },
 
   problems: [
