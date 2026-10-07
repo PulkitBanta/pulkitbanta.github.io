@@ -123,9 +123,9 @@ const DriveEasterEgg = showDrive ? (await import('../components/prototype/drive/
               projects.map((project, i) => (
                 <li data-reveal style={`--d:${i * 70}ms`}>
                   <a
-                    href={project.repoLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    href={project.pageLink ?? project.repoLink}
+                    target={project.pageLink ? undefined : '_blank'}
+                    rel={project.pageLink ? undefined : 'noopener noreferrer'}
                     class="group -mx-5 block rounded-2xl p-5 transition duration-300 hover:bg-white hover:shadow-[0_10px_40px_-15px_rgb(68_64_60/0.25)]"
                   >
                     <div class="flex items-baseline justify-between gap-4">

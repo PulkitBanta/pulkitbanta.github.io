@@ -17,7 +17,10 @@ export const GET: APIRoute = async () => {
     .join('\n');
 
   const projectList = projects
-    .map((project) => `- [${project.title}](${project.repoLink}) (${project.dayTime}): ${project.description}`)
+    .map(
+      (project) =>
+        `- [${project.title}](${project.pageLink ? absoluteUrl(project.pageLink) : project.repoLink}) (${project.dayTime}): ${project.description}`
+    )
     .join('\n');
 
   return markdownResponse(`# Pulkit Banta
