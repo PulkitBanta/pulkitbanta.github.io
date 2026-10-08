@@ -10,11 +10,11 @@ export const connectio = {
   version: '1.1.0',
   released: '2026-05-31',
   license: 'MIT',
-  tagline: 'One local address for all your dev servers.',
+  tagline: 'One local address for all your development servers.',
   summary:
-    'Connectio is a free, open-source desktop app that puts every local dev server behind one address. Route requests by path, watch each one live, and share it all through a Cloudflare tunnel, with no nginx config to write.',
+    'Connectio is a free, open-source desktop app. It puts all of your local development servers behind one address. It sends each request to a server by its path and shows each request immediately. You can share your servers through a Cloudflare tunnel. You do not write an nginx config.',
   description:
-    'Connectio is a free, open-source local proxy manager for macOS, Windows and Linux. Route requests between local dev servers by path, inspect every request live, and share them through a temporary Cloudflare tunnel.',
+    'Connectio is a free, open-source local proxy manager for macOS, Windows, and Linux. It sends requests to local development servers by path, shows each request, and shares them through a temporary Cloudflare tunnel.',
   repo,
   latest,
   installGuide: `${repo}/blob/main/INSTALL.md`,
@@ -25,58 +25,64 @@ export const connectio = {
   problems: [
     {
       title: 'CORS errors between ports',
-      body: 'Your frontend on :3000 calls the API on :3001, and the browser blocks it. Behind one origin there is nothing cross-origin left to block.',
+      body: 'Your frontend on :3000 sends requests to the API on :3001, and the browser blocks them. When all servers use one origin, the browser has no cross-origin requests to block.',
     },
     {
-      title: 'Cookies that never arrive',
-      body: 'A session cookie set by the auth service on :4000 is never sent to the app on :3000. On one address, cookies just work.',
+      title: 'Cookies that do not arrive',
+      body: 'The auth service on :4000 sets a session cookie, but the browser does not send it to the app on :3000. When all servers use one address, cookies operate correctly.',
     },
     {
-      title: 'Webhooks that need a public URL',
-      body: 'Stripe, GitHub and Slack need to call your machine. Tick one box and get a temporary trycloudflare.com URL for the whole setup.',
+      title: 'Webhooks that must have a public URL',
+      body: 'Stripe, GitHub, and Slack must send requests to your computer. Select one checkbox to receive a temporary trycloudflare.com URL for all of your servers.',
     },
     {
-      title: 'Reverse-proxy config you rewrite every time',
-      body: 'No nginx.conf, no Caddyfile, no Docker network. Point-and-click rules you can save, switch and share as JSON.',
+      title: 'Reverse-proxy configs that you write again each time',
+      body: 'You do not write an nginx.conf file, a Caddyfile, or a Docker network. You make rules in the UI, and you can save, load, and share them as JSON.',
     },
   ],
 
   steps: [
     {
       title: 'Add your servers',
-      body: 'Click + and add each local server as an app: a name and a target like http://localhost:3001.',
+      body: 'Click + to add each local server as an app. Type a name and a target, for example http://localhost:3001.',
     },
     {
       title: 'Write route rules',
-      body: 'Add path rules such as /api/* or /auth/login. Rules match in order, so the first match wins.',
+      body: 'Add path rules, for example /api/* or /auth/login. Connectio compares the rules in sequence and uses the first rule that matches.',
     },
     {
-      title: 'Hit Start',
-      body: 'Pick a port (8080 by default) and start the server. Everything is now reachable on one address.',
+      title: 'Start the server',
+      body: 'Select a port. The default port is 8080. Then click Start. All of your servers are now available at one address.',
     },
     {
-      title: 'Watch every request',
-      body: 'Requests stream into Recent Requests. Click one to see its matched rule, target and headers.',
+      title: 'Monitor each request',
+      body: 'Each request shows in Recent Requests. Click a request to see the matched rule, the target, and the headers.',
     },
     {
-      title: 'Share when you need to',
-      body: 'Turn on the Cloudflare tunnel for a public URL while the server runs. It closes when you stop.',
+      title: 'Share your servers',
+      body: 'Enable the Cloudflare tunnel to receive a public URL while the server runs. When you stop the server, the tunnel closes.',
     },
   ],
 
   features: [
     {
       title: 'Wildcard route rules',
-      body: 'Glob-style paths like /api/* routed to any local target, matched in priority order.',
+      body: 'Send glob paths, for example /api/*, to any local target. Connectio compares the rules in priority sequence.',
     },
     {
       title: 'Live request logs',
-      body: 'Method, path, status and timing for every request, with full details on click.',
+      body: 'See the method, path, status, and time of each request. Click a request to see all of its details.',
     },
-    { title: 'Cloudflare tunnels', body: 'A temporary public URL per config, opened on start and closed on stop.' },
-    { title: 'Save and load configs', body: 'Keep one setup per project and switch between them in one click.' },
-    { title: 'JSON import and export', body: 'Copy a config to the clipboard, save it as a file, or paste one in.' },
-    { title: 'Built-in JSON editor', body: 'Edit any config as raw JSON with validation before it saves.' },
+    {
+      title: 'Cloudflare tunnels',
+      body: 'Each config can have a temporary public URL. The tunnel opens when the server starts and closes when it stops.',
+    },
+    { title: 'Save and load configs', body: 'Keep one config for each project. Click one time to load a different config.' },
+    {
+      title: 'JSON import and export',
+      body: 'Copy a config to the clipboard, save it as a file, or paste a config into the app.',
+    },
+    { title: 'Built-in JSON editor', body: 'Edit a config as raw JSON. Connectio validates the JSON before it saves the config.' },
   ],
 
   downloads: [
@@ -108,43 +114,43 @@ export const connectio = {
   faqs: [
     {
       q: 'What is Connectio?',
-      a: 'Connectio is a desktop app that runs a local reverse proxy. You add your local dev servers, write path rules like /api/* → localhost:3001, and reach all of them through one address such as localhost:8080.',
+      a: 'Connectio is a desktop app that runs a local reverse proxy. You add your local development servers and write path rules, for example /api/* → localhost:3001. Then you can access all of the servers through one address, for example localhost:8080.',
     },
     {
       q: 'Is Connectio free?',
-      a: 'Yes. Connectio is free and open source under the MIT license. The source code is on GitHub.',
+      a: 'Yes. Connectio is free and open source. It uses the MIT license. The source code is on GitHub.',
     },
     {
-      q: 'Which platforms does it run on?',
-      a: 'macOS on Apple Silicon, Windows (64-bit) and Linux (AppImage or .deb). Intel Macs and other architectures can build it from source.',
+      q: 'Which operating systems can it run on?',
+      a: 'Connectio runs on macOS with Apple Silicon, on 64-bit Windows, and on Linux (AppImage or .deb). For Intel Macs and other architectures, build Connectio from the source code.',
     },
     {
-      q: 'How does Connectio fix CORS errors in local development?',
-      a: 'CORS errors happen because your frontend and API run on different ports, which the browser treats as different origins. Connectio serves both from the same port, so requests are same-origin and the browser has nothing to block.',
+      q: 'How does Connectio prevent CORS errors in local development?',
+      a: 'CORS errors occur when your frontend and your API use different ports. The browser thinks that different ports are different origins. Connectio puts both behind the same port. Thus, the requests have the same origin, and the browser does not block them.',
     },
     {
       q: 'How is it different from nginx or Caddy?',
-      a: 'nginx and Caddy are production web servers configured with text files you edit and reload. Connectio is built for local development: rules are edited in a UI, take effect when you start, every request is logged live, and setups are saved as JSON you can switch between.',
+      a: 'nginx and Caddy are production web servers. You configure them with text files, and you must reload them after each change. Connectio is for local development. You edit rules in a UI, and the rules apply when you start the server. Connectio shows each request in a live log. It saves each configuration as JSON that you can load again.',
     },
     {
       q: 'Do I need Docker?',
-      a: 'No. Connectio proxies to servers already running on your machine, however you start them: npm scripts, Go binaries, Docker containers with published ports, or anything else that listens on localhost.',
+      a: 'No. Connectio sends requests to servers that already run on your computer. You can start these servers in any way: npm scripts, Go binaries, Docker containers with published ports, or other programs that listen on localhost.',
     },
     {
       q: 'How do Cloudflare tunnels work in Connectio?',
-      a: 'Enable "Cloudflare tunnel" before starting the server. Connectio starts a Cloudflare Quick Tunnel, shows the public trycloudflare.com URL and closes it when you stop. It needs cloudflared installed on your PATH. Anyone with the URL can reach every route, so only use it for development.',
+      a: 'Before you start the server, enable "Cloudflare tunnel". Connectio starts a Cloudflare Quick Tunnel and shows the public trycloudflare.com URL. When you stop the server, Connectio closes the tunnel. You must have cloudflared in a directory on your PATH. All persons who have the URL can access every route. Thus, use tunnels only for development.',
     },
     {
       q: 'Where are my configs stored?',
-      a: 'As JSON files in your OS user data folder: ~/Library/Application Support/connectio/configs on macOS, %APPDATA%/connectio/configs on Windows and ~/.config/connectio/configs on Linux.',
+      a: 'Connectio keeps configs as JSON files in the user data folder of your operating system: ~/Library/Application Support/connectio/configs on macOS, %APPDATA%/connectio/configs on Windows, and ~/.config/connectio/configs on Linux.',
     },
     {
-      q: 'Why does my OS warn me when I first open it?',
-      a: 'Connectio is not code-signed yet, so macOS and Windows ask you to confirm the first launch. The install guide walks through it, or use the install script, which skips the prompts.',
+      q: 'Why does my operating system show a warning when I open Connectio for the first time?',
+      a: 'Connectio does not have a code signature yet. Thus, macOS and Windows ask you to confirm the first launch. The install guide gives the procedure. Alternatively, use the install script, which prevents these prompts.',
     },
     {
       q: 'How do I update Connectio?',
-      a: 'Download the new release and install it over the old one, or re-run the install script. Your saved configs are kept.',
+      a: 'Download the new release and install it over the old version. Alternatively, run the install script again. Connectio keeps your saved configs.',
     },
   ],
 };

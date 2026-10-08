@@ -20,7 +20,7 @@ This file links to clean Markdown versions of every public page on the website. 
 
 - [Homepage](${absoluteUrl('/index.md')}): About Pulkit, contact details, recent blogs, and projects.
 - [Blog index](${absoluteUrl('/blogs.md')}): Complete list of articles about software engineering and AI.
-- [Connectio](${absoluteUrl('/connectio.md')}): Free, open-source local proxy manager. Downloads, how to use it, and FAQ.
+- [Connectio](${absoluteUrl('/connectio.md')}): Free, open-source local proxy manager. Downloads, procedure, and FAQ.
 
 ## Blog posts
 

@@ -31,7 +31,7 @@ const shots = [home, highlights, home, details, details];
       description={c.description}
       markdownPath="/connectio.md"
       image={c.ogImage}
-      imageAlt={`${c.name}: ${c.tagline} Route by path, inspect every request, share through a tunnel.`}
+      imageAlt={`${c.name}: ${c.tagline} Send requests by path, examine each request, and share through a tunnel.`}
     />
     <ConnectioSchema />
     <ClientRouter />
@@ -57,7 +57,7 @@ const shots = [home, highlights, home, details, details];
         class="intro mx-auto mt-8 max-w-4xl text-5xl font-semibold leading-[1.04] tracking-tight text-stone-900 md:text-7xl"
         style="--i:1"
       >
-        One local address for <span class="text-teal-700">all your dev servers.</span>
+        One local address for <span class="text-teal-700">all your development servers.</span>
       </h1>
       <p class="intro mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-stone-600" style="--i:2">{c.summary}</p>
       <div class="intro mt-10 flex flex-wrap items-center justify-center gap-3" style="--i:3">
@@ -101,8 +101,10 @@ const shots = [home, highlights, home, details, details];
         data-reveal
         class="mt-4 max-w-3xl text-3xl font-semibold leading-tight tracking-tight text-stone-900 md:text-4xl"
       >
-        Your frontend is on <span class="text-teal-700">:3000</span>, the API on <span class="text-teal-700">:3001</span
-        >, auth on <span class="text-teal-700">:4000</span>. The browser treats them as three different sites.
+        Your frontend is on <span class="text-teal-700">:3000</span>, the API is on <span class="text-teal-700"
+          >:3001</span
+        >, and auth is on <span class="text-teal-700">:4000</span>. The browser thinks that they are three different
+        sites.
       </p>
       <div class="mt-14 grid gap-x-16 gap-y-10 md:grid-cols-2">
         {
@@ -156,7 +158,7 @@ const shots = [home, highlights, home, details, details];
     </section>
 
     <section class="mx-auto mt-24 max-w-6xl px-6">
-      <h2 data-reveal class="text-sm font-medium uppercase tracking-widest text-teal-700">Everything else</h2>
+      <h2 data-reveal class="text-sm font-medium uppercase tracking-widest text-teal-700">More features</h2>
       <div class="mt-8 grid gap-6 md:grid-cols-3">
         {
           c.features.map((f, i) => (
@@ -180,7 +182,7 @@ const shots = [home, highlights, home, details, details];
     <section id="download" class="mx-auto mt-32 max-w-4xl scroll-mt-10 px-6 text-center">
       <h2 data-reveal class="text-4xl font-semibold tracking-tight text-stone-900 md:text-5xl">Get Connectio</h2>
       <p data-reveal class="mx-auto mt-4 max-w-xl text-base text-stone-600">
-        Free under the MIT license. Pick your platform, or install from the terminal.
+        Connectio is free under the MIT license. Select your operating system, or install Connectio from the terminal.
       </p>
       <ul
         data-reveal
@@ -205,7 +207,7 @@ const shots = [home, highlights, home, details, details];
         {c.install.unix}
       </div>
       <p data-reveal class="mt-4 text-sm text-stone-500">
-        Not code-signed yet, so the first launch asks you to confirm. <a
+        Connectio does not have a code signature yet. Thus, you must confirm the first launch. <a
           href={c.installGuide}
           class="link-wipe text-stone-900">Install guide →</a
         >

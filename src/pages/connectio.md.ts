@@ -11,11 +11,11 @@ Version ${c.version} · ${c.license} license · [Source on GitHub](${c.repo})
 
 ${c.summary}
 
-## Problems it solves
+## Problems that it solves
 
 ${c.problems.map((p) => `- **${p.title}.** ${p.body}`).join('\n')}
 
-## How to use it
+## Procedure
 
 ${c.steps.map((s, i) => `${i + 1}. **${s.title}.** ${s.body}`).join('\n')}
 
