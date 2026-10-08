@@ -40,7 +40,9 @@ const DriveEasterEgg = showDrive ? (await import('../components/prototype/drive/
     <div class="mx-auto grid max-w-6xl gap-16 px-6 lg:grid-cols-[1fr_1.15fr] lg:gap-24">
       <aside class="flex flex-col pt-14 lg:sticky lg:top-0 lg:h-screen lg:justify-between lg:py-16">
         <div>
-          <p class="intro text-sm font-medium text-stone-500" style="--i:0">{profile.tagline}</p>
+          <p class="intro text-sm font-medium text-stone-500" style="--i:0">
+            {profile.tagline}
+          </p>
           <h1 class="intro mt-5 text-6xl font-semibold leading-[1.05] tracking-tight text-stone-900" style="--i:1">
             Hey, I'm Pulkit.
           </h1>
@@ -50,20 +52,18 @@ const DriveEasterEgg = showDrive ? (await import('../components/prototype/drive/
 
           <nav class="intro mt-12 hidden lg:block" style="--i:3" aria-label="Sections">
             <ul class="space-y-3">
-              {
-                sections.map((s) => (
-                  <li>
-                    <a
-                      href={`#${s.id}`}
-                      data-spy={s.id}
-                      class="spy flex items-center gap-4 py-1 text-sm font-medium uppercase tracking-widest text-stone-400"
-                    >
-                      <span class="spy-line h-px bg-current" />
-                      {s.label}
-                    </a>
-                  </li>
-                ))
-              }
+              {sections.map((s) => (
+                <li>
+                  <a
+                    href={`#${s.id}`}
+                    data-spy={s.id}
+                    class="spy flex items-center gap-4 py-1 text-sm font-medium uppercase tracking-widest text-stone-400"
+                  >
+                    <span class="spy-line h-px bg-current" />
+                    {s.label}
+                  </a>
+                </li>
+              ))}
             </ul>
           </nav>
         </div>
@@ -71,9 +71,15 @@ const DriveEasterEgg = showDrive ? (await import('../components/prototype/drive/
         <div class="mt-12">
           <Hills class="w-full max-w-sm" />
           <div class="mt-6 flex gap-6 text-sm font-medium text-stone-900">
-            <a href={links.email} class="link-wipe">Email</a>
-            <a href={links.linkedin} target="_blank" class="link-wipe">LinkedIn</a>
-            <a href={links.github} target="_blank" class="link-wipe">GitHub</a>
+            <a href={links.email} class="link-wipe">
+              Email
+            </a>
+            <a href={links.linkedin} target="_blank" class="link-wipe">
+              LinkedIn
+            </a>
+            <a href={links.github} target="_blank" class="link-wipe">
+              GitHub
+            </a>
           </div>
         </div>
       </aside>
@@ -81,26 +87,26 @@ const DriveEasterEgg = showDrive ? (await import('../components/prototype/drive/
       <main class="pb-24 lg:py-16">
         <section id="about" data-section class="scroll-mt-16">
           <h2 class="text-sm font-medium uppercase tracking-widest text-teal-700">About</h2>
-          <p class="intro mt-4 text-base leading-relaxed lg:mt-2" style="--i:2">{profile.intro}</p>
-          <p class="intro mt-6 text-base leading-relaxed" style="--i:3">{profile.interests}</p>
+          <p class="intro mt-4 text-base leading-relaxed lg:mt-2" style="--i:2">
+            {profile.intro}
+          </p>
+          <p class="intro mt-6 text-base leading-relaxed" style="--i:3">
+            {profile.interests}
+          </p>
           <p class="intro mt-6 text-base leading-relaxed" style="--i:4">
             {profile.hometown}
-            {
-              showDrive && (
-                <button data-drive-trigger class="link-wipe ml-1 font-medium text-teal-700">
-                  Take the scenic route →
-                </button>
-              )
-            }
+            {showDrive && (
+              <button data-drive-trigger class="link-wipe ml-1 font-medium text-teal-700">
+                Take the scenic route →
+              </button>
+            )}
           </p>
           <ul class="intro mt-6 flex flex-wrap gap-2" style="--i:5">
-            {
-              profile.hobbies.map((hobby) => (
-                <li class="rounded-full border border-stone-300 bg-white/50 px-3 py-1 text-sm transition hover:-translate-y-0.5 hover:border-teal-600">
-                  {hobby}
-                </li>
-              ))
-            }
+            {profile.hobbies.map((hobby) => (
+              <li class="rounded-full border border-stone-300 bg-white/50 px-3 py-1 text-sm transition hover:-translate-y-0.5 hover:border-teal-600">
+                {hobby}
+              </li>
+            ))}
           </ul>
         </section>
 
@@ -109,7 +115,9 @@ const DriveEasterEgg = showDrive ? (await import('../components/prototype/drive/
             <h2 class="text-sm font-medium uppercase tracking-widest text-teal-700" transition:name="page-title">
               Blogs
             </h2>
-            <a href="/blogs" class="link-wipe text-sm font-medium text-stone-900">All blogs →</a>
+            <a href="/blogs" class="link-wipe text-sm font-medium text-stone-900">
+              All blogs →
+            </a>
           </div>
           <div class="mt-6">
             <BlogList blogs={blogs.slice(0, 3)} />
@@ -117,31 +125,31 @@ const DriveEasterEgg = showDrive ? (await import('../components/prototype/drive/
         </section>
 
         <section id="projects" data-section class="mt-28 scroll-mt-16">
-          <h2 data-reveal class="text-sm font-medium uppercase tracking-widest text-teal-700">Projects</h2>
+          <h2 data-reveal class="text-sm font-medium uppercase tracking-widest text-teal-700">
+            Projects
+          </h2>
           <ul class="mt-6 space-y-3">
-            {
-              projects.map((project, i) => (
-                <li data-reveal style={`--d:${i * 70}ms`}>
-                  <a
-                    href={project.pageLink ?? project.repoLink}
-                    target={project.pageLink ? undefined : '_blank'}
-                    rel={project.pageLink ? undefined : 'noopener noreferrer'}
-                    class="group -mx-5 block rounded-2xl p-5 transition duration-300 hover:bg-white hover:shadow-[0_10px_40px_-15px_rgb(68_64_60/0.25)]"
-                  >
-                    <div class="flex items-baseline justify-between gap-4">
-                      <h3 class="text-lg font-semibold text-stone-900">
-                        {project.title}
-                        <span class="inline-block text-stone-400 transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-teal-700">
-                          ↗
-                        </span>
-                      </h3>
-                      <span class="shrink-0 text-sm text-stone-500">{project.dayTime}</span>
-                    </div>
-                    <p class="mt-2 text-base leading-relaxed text-stone-500">{project.description}</p>
-                  </a>
-                </li>
-              ))
-            }
+            {projects.map((project, i) => (
+              <li data-reveal style={`--d:${i * 70}ms`}>
+                <a
+                  href={project.pageLink ?? project.repoLink}
+                  target={project.pageLink ? undefined : '_blank'}
+                  rel={project.pageLink ? undefined : 'noopener noreferrer'}
+                  class="group -mx-5 block rounded-2xl p-5 transition duration-300 hover:bg-white hover:shadow-[0_10px_40px_-15px_rgb(68_64_60/0.25)]"
+                >
+                  <div class="flex items-baseline justify-between gap-4">
+                    <h3 class="text-lg font-semibold text-stone-900">
+                      {project.title}
+                      <span class="inline-block text-stone-400 transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-teal-700">
+                        ↗
+                      </span>
+                    </h3>
+                    <span class="shrink-0 text-sm text-stone-500">{project.dayTime}</span>
+                  </div>
+                  <p class="mt-2 text-base leading-relaxed text-stone-500">{project.description}</p>
+                </a>
+              </li>
+            ))}
           </ul>
         </section>
 

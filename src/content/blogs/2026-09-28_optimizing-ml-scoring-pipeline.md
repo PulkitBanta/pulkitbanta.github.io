@@ -10,7 +10,7 @@ Last couple of weeks, I was working on optimization for the ML pipeline such tha
 
 Some context: At FunnelStory, we train prediction models for every customer's accounts to see how they behaved and what metrics differ between the two, the models then give a score to each factor contributing to churn / retention of the account. Based on that a prediction model is trained. This model is then used to score accounts every day using a background job to keep your CSMs up to date on what is happening and if you should be careful about a customer.
 
-This is usually a one time process once the data is fixed, to come at the final stage we need to iterate over the data, fix issues if any and test the different metrics for the prediction model. 
+This is usually a one time process once the data is fixed, to come at the final stage we need to iterate over the data, fix issues if any and test the different metrics for the prediction model.
 
 #### The data issue
 
@@ -28,9 +28,9 @@ With 150k accounts, 5 products on a test workspace, this took \~75 minutes. And 
 
 While benchmarking the code, a couple of issues that I saw were
 
-- looping over all the points and then scoring for the account & product  
-- all the points and scores for account, product live in memory  
-- 1 write to db for each account \+ 1 for each product \~= 750k writes  
+- looping over all the points and then scoring for the account & product
+- all the points and scores for account, product live in memory
+- 1 write to db for each account \+ 1 for each product \~= 750k writes
 - The writes to DB amounted for \~40% of the time taken by the process
 
 ### The solution
@@ -103,6 +103,4 @@ All these small additions with the optimization of workers and DB batching, ensu
 
 #### References
 
-1. [https://leapcell.medium.com/understanding-slice-and-map-expansion-in-go-9fd7482721a5](https://leapcell.medium.com/understanding-slice-and-map-expansion-in-go-9fd7482721a5) 
-
-
+1. [https://leapcell.medium.com/understanding-slice-and-map-expansion-in-go-9fd7482721a5](https://leapcell.medium.com/understanding-slice-and-map-expansion-in-go-9fd7482721a5)

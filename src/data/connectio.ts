@@ -77,12 +77,18 @@ export const connectio = {
       title: 'Cloudflare tunnels',
       body: 'Each config can have a temporary public URL. The tunnel opens when the server starts and closes when it stops.',
     },
-    { title: 'Save and load configs', body: 'Keep one config for each project. Click one time to load a different config.' },
+    {
+      title: 'Save and load configs',
+      body: 'Keep one config for each project. Click one time to load a different config.',
+    },
     {
       title: 'JSON import and export',
       body: 'Copy a config to the clipboard, save it as a file, or paste a config into the app.',
     },
-    { title: 'Built-in JSON editor', body: 'Edit a config as raw JSON. Connectio validates the JSON before it saves the config.' },
+    {
+      title: 'Built-in JSON editor',
+      body: 'Edit a config as raw JSON. Connectio validates the JSON before it saves the config.',
+    },
   ],
 
   downloads: [
