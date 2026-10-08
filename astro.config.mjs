@@ -6,6 +6,8 @@ export default defineConfig({
   site: 'https://pulkitbanta.com',
   base: '/',
   integrations: [sitemap()],
+  // Astro 7 defaults to 'jsx', which strips whitespace between inline elements.
+  compressHTML: true,
   // Self-hosted at build time with metric-matched fallbacks, so there's no third-party
   // request chain and no layout shift when the web font swaps in.
   fonts: [
