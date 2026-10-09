@@ -6,6 +6,10 @@ export default defineConfig({
   site: 'https://pulkitbanta.com',
   base: '/',
   integrations: [sitemap()],
+  // Connectio moved to its own subdomain; keep the old route working for existing links.
+  redirects: {
+    '/connectio': 'https://connectio.pulkitbanta.com/',
+  },
   // Astro 7 defaults to 'jsx', which strips whitespace between inline elements.
   compressHTML: true,
   // Self-hosted at build time with metric-matched fallbacks, so there's no third-party
