@@ -22,6 +22,8 @@ Why is this so cool? Because it lets _you_ check the facts! You can click on tho
 
 ## Seeing is Believing: An Example
 
+![Example of ChatGPT showing citations](/images/blogs/streaming-citations/chatgpt-citation-example.avif)
+
 These citations pop up right after ChatGPT has done some digging on the web. It's like it says, "Hey, I found this awesome info, and here are the places I got it from!" It gathers a bunch of sources and then smartly orders them based on how well they match your question.
 
 If you ask, "What's the flight speed of a common bird?" ChatGPT quickly searches the web and starts typing out an answer. But how does it manage to show you the answer _and_ the sources at the same time, as it's typing? That's the real magic!
