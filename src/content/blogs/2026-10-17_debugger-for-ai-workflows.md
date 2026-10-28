@@ -18,7 +18,17 @@ In the last year, I built AI agents and we also built a runtime to create custom
 
 You can assume this to be something like [Zapier](https://zapier.com/?utm_source=pulkitbanta.com) or [n8n](https://n8n.io/?utm_source=pulkitbanta.com). Since we have all the data already present, we can do a lot more with the same and allow the customers to automate simple tasks in their day and improve their productivity
 
-And as we started configuring this, one thing we found was without performing some of the steps which are destructive, we cannot really go ahead and check the next steps and this becomes a blocking issue ☹️
+And as we started configuring this, one thing we found was without performing some of the steps which are destructive (sending an email, creating a meeting invite, updating CRM), we cannot really go ahead and check the next steps and this becomes a blocking issue ☹️
+
+#### Example
+
+A step in the flow decides whether to suggest email to a customer or not and the decision is based on some action that customer took, like replied to a message in slack thread, took some action in the product.
+
+Now if an agent workflow is running top to down, it will never pass that check for a specific trigger on production when a customer wants to test the same. The reason is because the end user has not taken that action yet. And the workflow run will keep failing so either you have to skip that condition or check that the customer took some action.
+
+Now if your agent also decides on what the customer said or what the action was, you are going to have some issues trying to test your agent workflow with different inputs eg: the slack thread is fetched live from a slack connection, a hubspot company, fetching an email from user’s input. Mocking data for all these is another problem and you can maybe create a new tenant to test this yourself but what about production where customers want to test or build the new Agentic workflows?
+
+![Testing in production: the workflow waits 7 days on the real clock for a Slack reply that has not come yet, so the follow-up email step never gets tested](/images/blogs/debugger-for-ai-workflows/workflow-problem.png)
 
 ### Idea
 
@@ -26,7 +36,7 @@ I started by checking Zapier and n8n to see how they do these things and allow u
 
 This was not a good approach, I do not want to create a mess with customer data and then going back and forth with them to clear all the mess I created. I feel like this is not a good way to work with enterprise customers, you need to have a way to solve the issues, create custom solutions and not expect that you can break things and just fix it like it's your own machine.
 
-![](/images/blogs/debugger-for-ai-workflows/image1.png)
+![VS Code debugger paused on a breakpoint, showing variables and the call stack](/images/blogs/debugger-for-ai-workflows/image1.png)
 
 *VS Code debugger, via [code.visualstudio.com](https://code.visualstudio.com/docs/debugtest/debugging?utm_source=pulkitbanta.com)*
 
@@ -34,20 +44,18 @@ I remember that as a developer, for solving and checking for bugs we used to add
 
 ### Solution
 
-So the same iterative approach and rules but over a new problem. Instead of going blind and fixing in production, you run the flow step by step and update the data. The same ability exposed over the MCP allowed users to automate this using Claude / ChatGPT and have those systems configure the flows, test it step by step without destructive actions and fix the flow before it was ever live on production.
+Applying the same iterative approach and rules but over a new problem. Instead of going blind and fixing in production, you run the flow step by step and update the data.
 
-![](/images/blogs/debugger-for-ai-workflows/image2.png)
+I can now run a workflow and have a step which waits for 7 days for the user’s reply and responds with a customized email / slack message / or simply asks for a meeting. See the image below, I can update the `Run as of` to Oct 25 and that will cover my 7 days timestamp, the workflow continues as normal. And similarly, I can check the opposite case where the end user replied and asked for a new feature, which will create a task for the CSM of the product.
 
-Even added the ability to change and configure the time for the flow such that users can replay and plan for actions like data updating after 7 days, you do not have to wait for 7 days or anything, just move the clock past 7 days and you see how the flow would actually behave.
+There are two scopes for variables i.e. **local** and **global**. Globally scoped variables are always kept and can be overridden by other steps (apart from some of the restricted variables), local variables are generally part of loops, output of a step etc.
+
+The debugger lets you edit any of the variables, whether it is global or local to a step. It even allows you to delete some variables (testing failure cases), add new variables, modify output of an external call or data from a previous step.
+
+![The Step through flow panel showing the step about to run, the Run as of date, editable variables and a Next step button](/images/blogs/debugger-for-ai-workflows/image2.png)
+
+![In the debugger: Run as of is set to Oct 25 and a mock Slack reply is set by hand, so both steps run and the email is only previewed](/images/blogs/debugger-for-ai-workflows/workflow-debugger.png)
+
+This capability while exposed over MCP in a similar manner with a tool like `debug_step(step_id, variables)`, allows a customer to test the Agent workflow using Claude / Codex and cover all the different scenarios, see how the Agent responds and how tweak the prompts / tools to ensure that the end results is what they are expecting without having to actually run the workflow in production and then debug if something goes wrong 😨
 
 This empowered our customers and internal team configuring the workflows, similar to how you will think a developer was first empowered by using the debugger having to debug something critical which normally you would miss 😀
-
-### How it works
-
-At a high level:
-
-- Each step runs on its own, and its output is saved as state that the next step reads.
-- Destructive steps, like writing to a CRM or sending an email, are stopped in debug mode. You see what would have been sent and can enter the response yourself.
-- You can edit variables between steps to test edge cases, like empty fields or unexpected values.
-- The workflow's clock can be set by hand, so "wait 7 days" steps run against a fake time instead of really waiting.
-- The same actions are available as MCP tools, so an agent can step through a flow by itself.
