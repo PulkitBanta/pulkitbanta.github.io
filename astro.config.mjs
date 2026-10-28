@@ -1,11 +1,12 @@
 import { defineConfig, fontProviders } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
 import sitemap from '@astrojs/sitemap';
+import { addLastmod } from './scripts/sitemap-lastmod.mjs';
 
 export default defineConfig({
   site: 'https://pulkitbanta.com',
   base: '/',
-  integrations: [sitemap()],
+  integrations: [sitemap({ serialize: addLastmod })],
   // Connectio moved to its own subdomain; keep the old route working for existing links.
   redirects: {
     '/connectio': 'https://connectio.pulkitbanta.com/',
