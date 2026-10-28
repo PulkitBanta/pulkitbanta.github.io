@@ -68,5 +68,6 @@ export function addLastmod(item) {
     ? (lastCommitDate(blogSources(blog[1])) ?? pubDate(blog[1]))
     : lastCommitDate(PAGE_SOURCES[path] ?? []);
   if (lastmod) item.lastmod = lastmod;
+  item.priority = path === '/' ? 1.0 : path === '/blogs/' ? 0.8 : 0.7;
   return item;
 }
