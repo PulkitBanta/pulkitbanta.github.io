@@ -8,6 +8,8 @@ In this blog post, I will focus on how we at FunnelStory overcame the challenges
 
 Let's start with an example of asking the ChatGPT to list 5 countries that start and end with the same letter along with having it to justify the response.
 
+![ChatGPT listing 5 countries that start and end with the same letter, with wrong answers and confident justifications](/images/blogs/fixing-hallucination/countries-list.webp)
+
 None of the countries that it responded with is correct and on top of that it even provides the justification for it. You can try to reproduce this issue on GPT-3.5.
 
 There should always be a guardrail while developing on top of the LLM model as it is not always correct and is also limited by the training data. Let's dive into the details now.
@@ -19,6 +21,8 @@ While developing the chatbot for FunnelStory, we encountered issues where the bo
 ### Example
 
 **User**: What are my most active accounts?
+
+![The chatbot answering with placeholder accounts, Account1 to Account5, that do not exist in the system](/images/blogs/fixing-hallucination/accounts-result.webp)
 
 **Felix:** As seen in the example above, the response has accounts like `Account 1, Account 2...` but this is not the actual data present in our system. We pass functions to the LLM API call that it can call to get the data relevant to the user query but in this case none of the provided functions were called in order to get this data and instead the bot hallucinated and gave out the result. Upon repeating the question, the bot then provided the expected answer, listing the most active accounts based on generated activities and signals. Hence the main problem that we had is that the bot was not calling the correct functions or not calling the functions at all to get the data.
 
@@ -33,6 +37,8 @@ System prompts are messages passed to the chatbot with the 'system' role. They o
 At FunnelStory, these prompts include details on permissible bot responses to prevent internal information leaks, enforced with code checks as a safeguard.
 
 For example we pass details about what activities are there in the workspace and details for an activity if any. Since the data for activities can differ from workspace to workspace this is done dynamically to give context about the active workspace. If the bot does not know about the activities and is asked to get the details on "issues created by account A" then it does not know what "issues" is and instead of getting details for the activity with name "issues" it might try to get the details of an account and check if there is something related to "issue" or not. Moreover if a user writes "issue" instead of 'issues' it might say that there is no activity with this name in the system. But after passing the context on activities the bot knows the available activities in the system and can correctly get the data on that activity instead of calling the function to get account details hence improving the overall accuracy of the bot
+
+![The bot checking the activities it knows from the system prompt context before answering a question about the ACME account](/images/blogs/fixing-hallucination/system-prompt-activities.webp)
 
 ### Few-shot function prompts
 
