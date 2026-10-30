@@ -35,7 +35,7 @@ ${profile.hometown}
 
 ## Contact
 
-- Email: [pulkitbanta01@gmail.com](mailto:pulkitbanta01@gmail.com)
+- Email: [hi@pulkitbanta.com](mailto:hi@pulkitbanta.com)
 - GitHub: [github.com/pulkitbanta](https://github.com/pulkitbanta)
 - LinkedIn: [linkedin.com/in/pulkitbanta](https://linkedin.com/in/pulkitbanta)
 
